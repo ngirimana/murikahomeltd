@@ -16,7 +16,9 @@ const input = (props) => {
                 className={ inputClasses.join(' ') }
                 { ...props.elementConfig }
                 value={ props.value }
-                onChange={ props.changed } />;
+                required={props.required}
+                onChange={ props.changed }
+                 />;
             break;
         case ('textarea'):
             inputElement = <textarea

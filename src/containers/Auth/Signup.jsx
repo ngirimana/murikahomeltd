@@ -127,6 +127,7 @@ class Signup extends Component {
 				elementType={ formElement.config.elementType }
 				elementConfig={ formElement.config.elementConfig }
 				value={ formElement.config.value }
+				required={formElement.config.validation.required}
 				invalid={ !formElement.config.valid }
 				shouldValidate={ formElement.config.validation }
 				touched={ formElement.config.touched }
