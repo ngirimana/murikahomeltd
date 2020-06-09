@@ -1,0 +1,60 @@
+.Auth {
+	width: 100%;
+	margin: 10rem auto;
+	text-align: center;
+	box-shadow: 0 2px 3px #ccc;
+	border: 1px solid #eee;
+	padding: 1.5rem;
+	box-sizing: border-box;
+
+}
+.LinkText{
+	font-size: 1.6rem;
+	color:var(--color-grey-light-2);
+}
+.Link{
+	color: var(--color-primary-dark);
+	display: inline-block;
+  padding: 0.5rem 1rem;
+  border: none;
+	font-size: 1.6rem;
+	border-radius: .3rem;
+	text-decoration: none;
+}
+.Gbgcolor{
+	background-color: var(--color-primary-dark);
+	color: var(--color-white);
+	/* margin-left: 3rem; */
+}
+.Row{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 1rem;
+	
+}
+.PrimaryHeading{
+	font-size: 2rem;
+	text-transform: uppercase;
+	font-weight: 700;
+	display: inline-block;
+	background-image: linear-gradient(to right, var(--color-primary), var(--color-primary-dark));
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	letter-spacing: .2rem;
+	transition: all .2s;
+}
+.PrimaryHeading:hover{
+	transform: skewY(2deg) skewX(7deg) scale(1.1);
+        text-shadow: .5rem 1rem 2rem rgba(var(--color-secondary), .2);
+}
+
+
+@media (min-width: 600px) {
+	.Auth {
+			width: 40rem;
+	}
+} 
+.Error{
+	color: red;
+}
