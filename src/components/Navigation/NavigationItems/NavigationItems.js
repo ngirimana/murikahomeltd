@@ -7,8 +7,8 @@ const navigationItems = (props) => (
 	<ul className={ classes.NavigationItems }>
 		<NavigationItem link="/" exact>Home</NavigationItem>
 		{ !props.isAuthenticated ? <Auxilary>
-			<NavigationItem link="/auth">Signup</NavigationItem>
-			<NavigationItem link="/login">Login</NavigationItem>
+			<NavigationItem link="/auth">Account</NavigationItem>
+			
 		</Auxilary>
 
 			: <NavigationItem link="/logout">Logout</NavigationItem> }

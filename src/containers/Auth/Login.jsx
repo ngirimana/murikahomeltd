@@ -114,8 +114,8 @@ class Signin extends Component {
 								<h2 className={ classes.PrimaryHeading }>Welcome Back </h2>
 								<div className={ classes.Row }>
 
-									<NavLink to="/login" activeClassName={ classes.active } className={ classes.Gbgcolor }>Login</NavLink>
-									<NavLink to="/auth" activeClassName={ classes.active } className={ classes.Gbgcolor }>New account</NavLink>
+								<span className={classes.LinkText}>	<NavLink to="/login" activeClassName={ classes.active } className={ classes.Gbgcolor }>Login</NavLink></span>
+								<span className={classes.LinkText}>	<NavLink to="/auth" activeClassName={ classes.active } className={ classes.Gbgcolor }>New account</NavLink></span>
 								</div>
 								{ errorMessage }
 								<form onSubmit={ this.submitHandler }>
