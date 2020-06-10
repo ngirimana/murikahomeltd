@@ -1,3 +1,6 @@
+@import '../grid';
+@import '../variables';
+
 .Auth {
 	width: 100%;
 	margin: 10rem auto;
@@ -23,7 +26,7 @@
 }
 .Gbgcolor{
 	background-color: var(--color-primary-dark);
-	color: var(--color-white);
+	color: $color-white;
 	/* margin-left: 3rem; */
 }
 .Row{
@@ -52,9 +55,31 @@
 
 @media (min-width: 600px) {
 	.Auth {
-			width: 40rem;
+			width: 20%;
 	}
 } 
 .Error{
 	color: red;
 }
+// .SectionAccount {
+// 	padding: 15rem 0;
+// 	background-image: linear-gradient(to right bottom, $color-primary, $color-primary-dark);
+
+// }
+
+// .Account {
+// 	background-image: linear-gradient(105deg, 
+// 																	rgba($color-white, .9) 0%,
+// 																	rgba($color-white, .9) 50%,
+// 																	transparent 50%) ,
+// 													url(../../assets/images/house-1.jpeg);
+// 	background-size: 100%;
+// 	border-radius: 3px;
+// 	box-shadow: 0 1.5rem 4rem rgba($color-black, .2);
+
+// 	height: 50rem;
+// }
+// 	.AccountForm {
+// 			width: 50%;
+// 			padding: 6rem;
+// 	}

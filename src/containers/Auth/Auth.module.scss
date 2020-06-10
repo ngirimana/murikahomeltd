@@ -1,0 +1,143 @@
+@import '../../sass/grid.scss';
+@import '../../sass/variables.scss';
+
+.Auth {
+	width: 100%;
+	margin: 5rem auto;
+
+	text-align: center;
+	padding: 1.5rem;
+	box-sizing: border-box;
+
+}
+.LinkText{
+	font-size: 1.6rem;
+	color:$color-grey-light-2;
+}
+.Link{
+	color: $color-primary-dark;
+	display: inline-block;
+  padding: 0.5rem 1rem;
+	border: none;
+	text-align: left;
+	font-size: 1.6rem;
+	left: 0;
+	border-radius: .3rem;
+	margin-left: -105px;
+	text-decoration: none;
+}
+
+.Row{
+	width: 60%;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-column-gap: 1rem;
+	
+	
+}
+.Gbgcolor{
+	width: 70%;
+	margin: 0 auto;
+	color: var(--color-white);
+	background-color:var(--color-primary);
+	display: inline-block;
+  padding: 0.5rem 2rem;
+  border: none;
+	font-size: 1.6rem;
+	border-radius: .3rem;
+	cursor: pointer;
+	line-height: 100%;
+	height: 2rem;
+	outline: none;
+	text-decoration: none;
+}
+.Gbgcolor:hover,
+	.Gbgcolor:active,
+	.Gbgcolor.active {
+			background-color: var(--color-primary-dark);
+			color: white;
+	}
+.PrimaryHeading{
+	font-size: 2rem;
+	text-transform: uppercase;
+	font-weight: 700;
+	display: inline-block;
+	background-image: linear-gradient(to right, var(--color-primary), var(--color-primary-dark));
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	letter-spacing: .2rem;
+	transition: all .2s;
+}
+.PrimaryHeading:hover{
+	transform: skewY(2deg) skewX(7deg) scale(1.1);
+        text-shadow: .5rem 1rem 2rem rgba(var(--color-secondary), .2);
+}
+.Error{
+	color: red;
+}
+
+.SectionAccount {
+	width: 90%;
+	margin: 0 auto;
+	padding: 1rem 0;
+}
+
+.Account {
+	background-image: linear-gradient(105deg, 
+																	rgba($color-tertiary, .9) 0%,
+																	rgba($color-tertiary, .9) 50%,
+																	transparent 50%) ,
+													url(../../assets/images/house-1.jpeg);
+	background-size: 100%;
+	background-position: center;
+	border-radius: 3px;
+	height: 50rem;
+}
+.LoginHeight{
+	background-image: linear-gradient(105deg, 
+	rgba($color-tertiary, .9) 0%,
+	rgba($color-tertiary, .9) 50%,
+	transparent 50%) ,
+url(../../assets/images/house-1.jpeg);
+background-size: 100%;
+background-position: center;
+border-radius: 3px;
+	height: 37rem;
+}
+	.AccountForm {
+			width: 50%;
+			padding: 0rem;
+	}
+
+	@media (max-width: 600px) {
+		.Auth {
+				width: 100%;
+		}
+		.SectionAccount {
+			width: 100%;
+			//  background-image: linear-gradient(to right bottom, $color-primary, $color-primary-dark);
+	}
+		.Account, .LoginHeight
+		{
+			background-image: linear-gradient(105deg, 
+																			rgba($color-tertiary, .9) 0%,
+																			rgba($color-tertiary, .9) 100%,
+																			transparent 0%) ,
+															url(../../assets/images/house-1.jpeg);
+			background-size: 100%;
+			background-position: center;
+			border-radius: 3px;
+		}
+			.AccountForm {
+					width: 100%;
+					padding: 0;
+			}
+			.Gbgcolor{
+				width: 80%;
+			}
+			.Row{
+				width: 90%;
+			}
+	} 

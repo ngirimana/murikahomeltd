@@ -18,7 +18,7 @@
 	background-color: var(--color-grey-light-1);
 	padding: .6rem 1rem;
 	display: block;
-	width: 100%;
+	width: 60%;
 	margin: 0 auto;
 	box-sizing: border-box;
 	border-radius: .3rem;
@@ -36,4 +36,9 @@
 .Invalid {
 	border: 1px solid red;
 	background-color: #FDA49A;
+}
+@media (max-width: 600px) {
+	.InputElement{
+		width: 95%;
+	}
 }
