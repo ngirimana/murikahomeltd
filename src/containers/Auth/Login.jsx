@@ -1,72 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect, NavLink } from 'react-router-dom'
+import { Redirect, NavLink } from 'react-router-dom';
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
-import classes from './Auth.module.scss';
-import Spinner from '../../components/UI/Spinner/Spinner'
+import Spinner from '../../components/UI/Spinner/Spinner';
 import * as actions from '../../store/actions/index';
 import { checkValidity } from '../../shared/utility';
+import classes from './Auth.module.scss'
 
 
 
 
-class Signup extends Component {
+
+
+class Signin extends Component {
 	state = {
 		controls: {
-			firstName: {
+			userName: {
 				elementType: 'input',
 				elementConfig: {
 					type: 'text',
-					placeholder: 'First Name'
+					placeholder: 'Mail Address or Phone Number '
 				},
 				value: '',
 				validation: {
 					required: true,
-					minLength: 3
-				},
-				valid: false,
-				touched: false
-			},
-			lastName: {
-				elementType: 'input',
-				elementConfig: {
-					type: 'text',
-					placeholder: 'Last Name'
-				},
-				value: '',
-				validation: {
-					required: true,
-					minLength: 3
-				},
-				valid: false,
-				touched: false
-			},
-			phoneNumber: {
-				elementType: 'input',
-				elementConfig: {
-					type: 'text',
-					placeholder: 'Phone Number'
-				},
-				value: '',
-				validation: {
-					required: true,
-					minLength: 10,
-					maxLength: 13
-				},
-				valid: false,
-				touched: false
-			},
-			email: {
-				elementType: 'input',
-				elementConfig: {
-					type: 'email',
-					placeholder: 'Mail Address'
-				},
-				value: '',
-				validation: {
-					required: true,
-					isEmail: true
+					minLength: 0
 				},
 				valid: false,
 				touched: false
@@ -80,9 +39,9 @@ class Signup extends Component {
 				value: '',
 				validation: {
 					required: true,
-					minLength: 8,
-					maxLength: 20,
-					isPass: true
+					minLength: 0,
+					maxLength: 120,
+					isPass: false
 				},
 				valid: false,
 				touched: false
@@ -108,9 +67,7 @@ class Signup extends Component {
 	}
 	submitHandler = (event) => {
 		event.preventDefault();
-		this.props.onSignup(this.state.controls.firstName.value, this.state.controls.lastName.value,
-			this.state.controls.phoneNumber.value, this.state.controls.email.value,
-			this.state.controls.password.value);
+		this.props.onSignin(this.state.controls.userName.value, this.state.controls.password.value);
 	}
 
 	render() {
@@ -147,49 +104,49 @@ class Signup extends Component {
 		if (this.props.isAuthenticated) {
 			authRedirect = <Redirect to={ this.props.authRedirectPath } />
 		}
-		let bgClass = [ classes.Link, classes.Gbgcolor ];
+
 		return (
 			<div className={ classes.Auth }>
 				<div className={ classes.SectionAccount }>
-					<div className={ classes.Account }>
-						<div className={ classes.AccountForm }>
-							{ authRedirect }
-							<h2 className={ classes.PrimaryHeading }>Welcome To Murika Home</h2>
-							<div className={ classes.Row }>
+						<div className={ classes.LoginHeight }>
+							<div className={ classes.AccountForm }>
+								{ authRedirect }
+								<h2 className={ classes.PrimaryHeading }>Welcome Back </h2>
+								<div className={ classes.Row }>
 
-								<NavLink to="/login" activeClassName={ classes.active } className={ classes.Gbgcolor }>Login</NavLink>
-								<NavLink to="/auth" activeClassName={ classes.active } className={ classes.Gbgcolor }>New account</NavLink>
-							</div>
-							<form onSubmit={ this.submitHandler }>
-								{ form }
+									<NavLink to="/login" activeClassName={ classes.active } className={ classes.Gbgcolor }>Login</NavLink>
+									<NavLink to="/auth" activeClassName={ classes.active } className={ classes.Gbgcolor }>New account</NavLink>
+								</div>
 								{ errorMessage }
-								<Button btnType="Success"> SUBMIT { this.props.loading ? <Spinner /> : '' } </Button>
-								<h4 className={ classes.LinkText }> <NavLink to="/login" className={ classes.Link }>Already have an account? </NavLink>	</h4>
-							</form>
-							
+								<form onSubmit={ this.submitHandler }>
+									{ form }
+									<Button btnType="Success"> Log in { this.props.loading ? <Spinner /> : '' } </Button>
+									<h4 className={ classes.LinkText }> <NavLink to="/" className={ classes.Link }>Forgot Password?</NavLink>	</h4>
+								</form>
+	
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
+			
 		)
 	}
 
 }
 const mapStateToProps = state => {
 	return {
-		loading: state.signup.loading,
-		error: state.signup.error,
-		isAuthenticated: state.signup.token !== null,
-		authRedirectPath: state.signup.authRedirectPath
+		loading: state.login.loading,
+		error: state.login.error,
+		isAuthenticated: state.login.token !== null,
+		authRedirectPath: state.login.authRedirectPath
 	};
 };
 
 const mapDispatchToProps = dispatch => {
 	return {
-		onSignup: (firstName, lastName, phoneNumber, email, password, ) => dispatch(
-			actions.signup(firstName, lastName, phoneNumber, email, password)),
+		onSignin: (userName, password) => dispatch(actions.login(userName, password)),
 
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Signup);
+export default connect(mapStateToProps, mapDispatchToProps)(Signin);

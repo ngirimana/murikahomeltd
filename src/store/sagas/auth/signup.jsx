@@ -1,7 +1,7 @@
 import axios from 'axios'
 import { put } from 'redux-saga/effects';
 import decode from 'jwt-decode';
-import * as actions from '../actions/index'
+import * as actions from '../../actions/index'
 export function* signupUserSaga(action) {
 	yield put(actions.signupStart());
 	const signupData = {
