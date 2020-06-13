@@ -86,7 +86,19 @@ class Signup extends Component {
 				},
 				valid: false,
 				touched: false
-			}
+			},
+			deliveryMethod: {
+				elementType: 'select',
+				elementConfig: {
+						options: [
+								{ value: 'landlord', displayValue: 'Landlord' },
+								{ value: 'tenant', displayValue: 'Tenant' }
+						]
+				},
+				value: 'fastest',
+				validation: {},
+				valid: true
+		}
 		},
 	}
 	componentDidMount() {
@@ -147,7 +159,6 @@ class Signup extends Component {
 		if (this.props.isAuthenticated) {
 			authRedirect = <Redirect to={ this.props.authRedirectPath } />
 		}
-		let bgClass = [ classes.Link, classes.Gbgcolor ];
 		return (
 			<div className={ classes.Auth }>
 				<div className={ classes.SectionAccount }>
@@ -188,8 +199,9 @@ const mapDispatchToProps = dispatch => {
 	return {
 		onSignup: (firstName, lastName, phoneNumber, email, password, ) => dispatch(
 			actions.signup(firstName, lastName, phoneNumber, email, password)),
-
+			onSetAuthRedirectPath: () => dispatch(actions.setAuthRedirectPath('/'))
 	};
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Signup);
+

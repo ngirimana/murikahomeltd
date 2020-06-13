@@ -18,6 +18,25 @@ export const loginFail=(error)=>{
 		error:error
 	}
 }
+
+//logout actions
+
+export const logout = () => {
+	return {
+			type: actionTypes.AUTH_INITIATE_LOGOUT
+	};
+};
+export const logoutSucceed = () => {
+	return {
+			type: actionTypes.AUTH_LOGOUT
+	}
+}
+export const checkAuthTimeout = (expirationTime) => {
+	return {
+			type: actionTypes.AUTH_CHECK_TIMEOUT,
+			expirationTime: expirationTime
+	}
+};
 export const login = (userName, password) => {
 	return {
 		type: actionTypes.LOGIN_USER,
@@ -25,3 +44,15 @@ export const login = (userName, password) => {
 		password: password
 	}
 }
+
+export const setAuthRedirectPath = (path) => {
+	return {
+			type: actionTypes.SET_AUTH_REDIRECT_PATH,
+			path: path
+	};
+};
+export const authCheckState = () => {
+	return {
+			type: actionTypes.AUTH_CHECK_STATE
+	}
+};

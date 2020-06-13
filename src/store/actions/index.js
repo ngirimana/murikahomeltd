@@ -9,6 +9,12 @@ export {
 	login,
 	loginFail,
 	loginStart,
-	loginSuccess
+	loginSuccess,
+	
+	setAuthRedirectPath,
+	logout,
+	logoutSucceed,
+	checkAuthTimeout,
+	authCheckState,
 } from './auth/signin.jsx'
 

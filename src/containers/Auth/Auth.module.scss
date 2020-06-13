@@ -23,7 +23,7 @@
 	font-size: 1.6rem;
 	left: 0;
 	border-radius: .3rem;
-	margin-left: -105px;
+	margin-left: -9rem;
 	text-decoration: none;
 }
 
@@ -93,7 +93,7 @@
 	background-size: 100%;
 	background-position: center;
 	border-radius: 3px;
-	height: 50rem;
+	height: 60rem;
 }
 .LoginHeight{
 	background-image: linear-gradient(105deg, 
@@ -139,5 +139,8 @@ border-radius: 3px;
 			}
 			.Row{
 				width: 90%;
+			}
+			.Link{
+				margin-left: -6rem
 			}
 	} 
