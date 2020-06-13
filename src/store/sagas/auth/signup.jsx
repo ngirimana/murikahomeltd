@@ -26,7 +26,6 @@ export function* signupUserSaga(action) {
 		yield put(actions.signupFail(error.message));
 	}
 }
-
 export function* signupCheckStateSaga(action) {
 	const token = yield localStorage.getItem('token');
 	if (!token) {
