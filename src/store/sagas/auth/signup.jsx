@@ -16,7 +16,6 @@ export function* signupUserSaga(action) {
 	const url = 'https://murika.herokuapp.com/api/v1/auth/signup';
 	try {
 		const response = yield axios.post(url, signupData)
-		console.log(response.data);
 		const { exp } = decode(response.data.token);
 		yield localStorage.setItem('expirationDate', exp);
 		yield localStorage.setItem('token', response.data.token);
