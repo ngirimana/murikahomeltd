@@ -87,7 +87,7 @@ class Signup extends Component {
 				valid: false,
 				touched: false
 			},
-			deliveryMethod: {
+			userType: {
 				elementType: 'select',
 				elementConfig: {
 						options: [
@@ -95,7 +95,7 @@ class Signup extends Component {
 								{ value: 'tenant', displayValue: 'Tenant' }
 						]
 				},
-				value: 'fastest',
+				value: 'tenant',
 				validation: {},
 				valid: true
 		}
@@ -122,7 +122,7 @@ class Signup extends Component {
 		event.preventDefault();
 		this.props.onSignup(this.state.controls.firstName.value, this.state.controls.lastName.value,
 			this.state.controls.phoneNumber.value, this.state.controls.email.value,
-			this.state.controls.password.value);
+			this.state.controls.password.value,this.state.controls.userType.value);
 	}
 
 	render() {
@@ -197,8 +197,8 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
 	return {
-		onSignup: (firstName, lastName, phoneNumber, email, password, ) => dispatch(
-			actions.signup(firstName, lastName, phoneNumber, email, password)),
+		onSignup: (firstName, lastName, phoneNumber, email, password,userType ) => dispatch(
+			actions.signup(firstName, lastName, phoneNumber, email, password,userType)),
 			onSetAuthRedirectPath: () => dispatch(actions.setAuthRedirectPath('/'))
 	};
 };
