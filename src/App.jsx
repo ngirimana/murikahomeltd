@@ -3,6 +3,8 @@ import { Route, Switch, withRouter, Redirect } from 'react-router-dom';
 import { connect } from 'react-redux';
 import asyncComponent from './hoc/AsyncComponent/AsyncComponent';
 import Layout from './hoc/Layout/Layout';
+import Logout from './containers/Auth/Logout/Logout';
+import * as actions from './store/actions/index';
 const asyncSignup = asyncComponent(() => {
   return import('./containers/Auth/Signup.jsx')
 })
@@ -11,6 +13,10 @@ const asyncLogin = asyncComponent(() => {
 })
 
 class App extends Component {
+  componentDidMount () {
+    this.props.onTryAutoSignup();
+  }
+
   render() {
     let routes = (
       <Switch>
@@ -27,6 +33,7 @@ class App extends Component {
          
           <Route path="/login" component={ asyncLogin } />
           <Route path="/auth" component={ asyncSignup } />
+          <Route path="/logout" component={Logout}/>
           <Redirect to="/" />
         </Switch>
       );
@@ -49,6 +56,12 @@ const mapStateToProps = state => {
   };
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    onTryAutoSignup: () => dispatch( actions.authCheckState() )
+  };
+};
+
+export default withRouter( connect( mapStateToProps, mapDispatchToProps )( App ) );
 
 
-export default withRouter(connect(mapStateToProps)(App));
