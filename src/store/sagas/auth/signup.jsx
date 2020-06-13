@@ -11,6 +11,7 @@ export function* signupUserSaga(action) {
 		phoneNumber: action.phoneNumber,
 		email: action.email,
 		password: action.password,
+		userType:action.userType,
 	};
 	const url = 'https://murika.herokuapp.com/api/v1/auth/signup';
 	try {
