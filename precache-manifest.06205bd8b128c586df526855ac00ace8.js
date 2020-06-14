@@ -1,18 +1,18 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "4bc4d86ea27fa2270ac31261c1717f5a",
+    "revision": "36bbd930848cfadee363ee72d15516ce",
     "url": "/murika-front-end/index.html"
   },
   {
-    "revision": "c34387bd937087cb151c",
+    "revision": "96d13503f4bdb878c176",
     "url": "/murika-front-end/static/css/3.a542658b.chunk.css"
   },
   {
-    "revision": "5382db47d36d2ac704dd",
+    "revision": "40a55099684bb0d32b63",
     "url": "/murika-front-end/static/css/4.a542658b.chunk.css"
   },
   {
-    "revision": "18cdec16d1e1a2f743e5",
+    "revision": "30554d9b965c7164f562",
     "url": "/murika-front-end/static/css/main.e41fa7bf.chunk.css"
   },
   {
@@ -24,20 +24,20 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/murika-front-end/static/js/2.ff2bc8a6.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c34387bd937087cb151c",
-    "url": "/murika-front-end/static/js/3.4af6309e.chunk.js"
+    "revision": "96d13503f4bdb878c176",
+    "url": "/murika-front-end/static/js/3.b86b6477.chunk.js"
   },
   {
-    "revision": "5382db47d36d2ac704dd",
-    "url": "/murika-front-end/static/js/4.e3e70e02.chunk.js"
+    "revision": "40a55099684bb0d32b63",
+    "url": "/murika-front-end/static/js/4.aff68b1e.chunk.js"
   },
   {
-    "revision": "18cdec16d1e1a2f743e5",
-    "url": "/murika-front-end/static/js/main.5a55b7ee.chunk.js"
+    "revision": "30554d9b965c7164f562",
+    "url": "/murika-front-end/static/js/main.f9dc3757.chunk.js"
   },
   {
-    "revision": "9fd82ebba1b3d875b6a6",
-    "url": "/murika-front-end/static/js/runtime-main.fa0f8b4b.js"
+    "revision": "67e28b8d1c2e4f24ec0a",
+    "url": "/murika-front-end/static/js/runtime-main.bddf81d6.js"
   },
   {
     "revision": "5120ad222b9080b343187d3c51e851f3",

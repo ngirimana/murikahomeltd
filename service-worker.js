@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/murika-front-end/precache-manifest.f35fe362db96df3920470ec04dc3dc80.js"
+  "/murika-front-end/precache-manifest.06205bd8b128c586df526855ac00ace8.js"
 );
 
 self.addEventListener('message', (event) => {
