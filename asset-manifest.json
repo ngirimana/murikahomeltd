@@ -1,31 +1,31 @@
 {
   "files": {
     "main.css": "/murika-front-end/static/css/main.e41fa7bf.chunk.css",
-    "main.js": "/murika-front-end/static/js/main.5a55b7ee.chunk.js",
-    "main.js.map": "/murika-front-end/static/js/main.5a55b7ee.chunk.js.map",
-    "runtime-main.js": "/murika-front-end/static/js/runtime-main.fa0f8b4b.js",
-    "runtime-main.js.map": "/murika-front-end/static/js/runtime-main.fa0f8b4b.js.map",
-    "static/js/2.ff2bc8a6.chunk.js": "/murika-front-end/static/js/2.ff2bc8a6.chunk.js",
-    "static/js/2.ff2bc8a6.chunk.js.map": "/murika-front-end/static/js/2.ff2bc8a6.chunk.js.map",
+    "main.js": "/murika-front-end/static/js/main.5d0152b4.chunk.js",
+    "main.js.map": "/murika-front-end/static/js/main.5d0152b4.chunk.js.map",
+    "runtime-main.js": "/murika-front-end/static/js/runtime-main.6a285523.js",
+    "runtime-main.js.map": "/murika-front-end/static/js/runtime-main.6a285523.js.map",
+    "static/js/2.16e74cd3.chunk.js": "/murika-front-end/static/js/2.16e74cd3.chunk.js",
+    "static/js/2.16e74cd3.chunk.js.map": "/murika-front-end/static/js/2.16e74cd3.chunk.js.map",
     "static/css/3.a542658b.chunk.css": "/murika-front-end/static/css/3.a542658b.chunk.css",
-    "static/js/3.4af6309e.chunk.js": "/murika-front-end/static/js/3.4af6309e.chunk.js",
-    "static/js/3.4af6309e.chunk.js.map": "/murika-front-end/static/js/3.4af6309e.chunk.js.map",
+    "static/js/3.dd0d5b0a.chunk.js": "/murika-front-end/static/js/3.dd0d5b0a.chunk.js",
+    "static/js/3.dd0d5b0a.chunk.js.map": "/murika-front-end/static/js/3.dd0d5b0a.chunk.js.map",
     "static/css/4.a542658b.chunk.css": "/murika-front-end/static/css/4.a542658b.chunk.css",
-    "static/js/4.e3e70e02.chunk.js": "/murika-front-end/static/js/4.e3e70e02.chunk.js",
-    "static/js/4.e3e70e02.chunk.js.map": "/murika-front-end/static/js/4.e3e70e02.chunk.js.map",
+    "static/js/4.b146e768.chunk.js": "/murika-front-end/static/js/4.b146e768.chunk.js",
+    "static/js/4.b146e768.chunk.js.map": "/murika-front-end/static/js/4.b146e768.chunk.js.map",
     "index.html": "/murika-front-end/index.html",
-    "precache-manifest.f35fe362db96df3920470ec04dc3dc80.js": "/murika-front-end/precache-manifest.f35fe362db96df3920470ec04dc3dc80.js",
+    "precache-manifest.afc2342d1a93d5874810e944f65bb4c0.js": "/murika-front-end/precache-manifest.afc2342d1a93d5874810e944f65bb4c0.js",
     "service-worker.js": "/murika-front-end/service-worker.js",
     "static/css/3.a542658b.chunk.css.map": "/murika-front-end/static/css/3.a542658b.chunk.css.map",
     "static/css/4.a542658b.chunk.css.map": "/murika-front-end/static/css/4.a542658b.chunk.css.map",
     "static/css/main.e41fa7bf.chunk.css.map": "/murika-front-end/static/css/main.e41fa7bf.chunk.css.map",
-    "static/js/2.ff2bc8a6.chunk.js.LICENSE.txt": "/murika-front-end/static/js/2.ff2bc8a6.chunk.js.LICENSE.txt",
+    "static/js/2.16e74cd3.chunk.js.LICENSE.txt": "/murika-front-end/static/js/2.16e74cd3.chunk.js.LICENSE.txt",
     "static/media/Auth.module.scss": "/murika-front-end/static/media/house-1.5120ad22.jpeg"
   },
   "entrypoints": [
-    "static/js/runtime-main.fa0f8b4b.js",
-    "static/js/2.ff2bc8a6.chunk.js",
+    "static/js/runtime-main.6a285523.js",
+    "static/js/2.16e74cd3.chunk.js",
     "static/css/main.e41fa7bf.chunk.css",
-    "static/js/main.5a55b7ee.chunk.js"
+    "static/js/main.5d0152b4.chunk.js"
   ]
 }
