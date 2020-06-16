@@ -11,18 +11,22 @@ const asyncSignup = asyncComponent(() => {
 const asyncLogin = asyncComponent(() => {
   return import('./containers/Auth/Login.jsx')
 })
+const asyncAddHouse = asyncComponent(() => {
+  return import('./containers/house/Addhouse.jsx')
+})
 
 class App extends Component {
-  componentDidMount () {
+  componentDidMount() {
     this.props.onTryAutoSignup();
   }
 
   render() {
     let routes = (
       <Switch>
-        
+
         <Route path="/login" component={ asyncLogin } />
         <Route path="/auth" component={ asyncSignup } />
+        <Route path="/add-house" component={ asyncAddHouse } />
         <Redirect to="/" />
       </Switch>
     );
@@ -30,10 +34,11 @@ class App extends Component {
     if (this.props.isAuthenticated || this.props.isAuth) {
       routes = (
         <Switch>
-         
+
           <Route path="/login" component={ asyncLogin } />
           <Route path="/auth" component={ asyncSignup } />
-          <Route path="/logout" component={Logout}/>
+          <Route path="/add-house" component={ asyncAddHouse } />
+          <Route path="/logout" component={ Logout } />
           <Redirect to="/" />
         </Switch>
       );
@@ -58,10 +63,10 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    onTryAutoSignup: () => dispatch( actions.authCheckState() )
+    onTryAutoSignup: () => dispatch(actions.authCheckState())
   };
 };
 
-export default withRouter( connect( mapStateToProps, mapDispatchToProps )( App ) );
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
 
 

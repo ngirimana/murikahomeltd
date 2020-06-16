@@ -10,7 +10,7 @@ export {
 	loginFail,
 	loginStart,
 	loginSuccess,
-	
+
 	setAuthRedirectPath,
 	logout,
 	logoutSucceed,
@@ -18,3 +18,9 @@ export {
 	authCheckState,
 } from './auth/signin.jsx'
 
+export {
+	addHouse,
+	addHouseStart,
+	addHouseSuccess,
+	addHouseFail
+} from './house/house.jsx'

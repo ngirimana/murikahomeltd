@@ -1,24 +1,22 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Redirect, NavLink } from 'react-router-dom'
-import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
-import classes from './Auth.module.scss';
+import Input from '../../components/UI/Input/Input';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import * as actions from '../../store/actions/index';
 import { checkValidity } from '../../shared/utility';
+import axios from '../../custom-axios';
+import WithErrorHandler from '../../hoc/WithErrorHandler/WithErrorHandler'
+import classes from '../Auth/Auth.module.scss';
 
-
-
-
-class Signup extends Component {
+class AddHouse extends Component {
 	state = {
 		controls: {
-			firstName: {
+			price: {
 				elementType: 'input',
 				elementConfig: {
 					type: 'text',
-					placeholder: 'First Name'
+					placeholder: 'price'
 				},
 				value: '',
 				validation: {
@@ -28,21 +26,7 @@ class Signup extends Component {
 				valid: false,
 				touched: false
 			},
-			lastName: {
-				elementType: 'input',
-				elementConfig: {
-					type: 'text',
-					placeholder: 'Last Name'
-				},
-				value: '',
-				validation: {
-					required: true,
-					minLength: 3
-				},
-				valid: false,
-				touched: false
-			},
-			phoneNumber: {
+			phone: {
 				elementType: 'input',
 				elementConfig: {
 					type: 'text',
@@ -71,40 +55,108 @@ class Signup extends Component {
 				valid: false,
 				touched: false
 			},
-			password: {
+			district: {
 				elementType: 'input',
 				elementConfig: {
-					type: 'password',
-					placeholder: 'Password'
+					type: 'text',
+					placeholder: 'District'
 				},
 				value: '',
 				validation: {
 					required: true,
-					minLength: 8,
-					maxLength: 20,
-					isPass: true
+					minLength: 3
 				},
 				valid: false,
 				touched: false
 			},
-			userType: {
+			sector: {
+				elementType: 'input',
+				elementConfig: {
+					type: 'text',
+					placeholder: 'Sector'
+				},
+				value: '',
+				validation: {
+					required: true,
+					minLength: 3
+				},
+				valid: false,
+				touched: false
+			},
+			cell: {
+				elementType: 'input',
+				elementConfig: {
+					type: 'text',
+					placeholder: 'Cell'
+				},
+				value: '',
+				validation: {
+					required: true,
+					minLength: 3
+				},
+				valid: false,
+				touched: false
+			},
+			village: {
+				elementType: 'input',
+				elementConfig: {
+					type: 'text',
+					placeholder: 'village'
+				},
+				value: '',
+				validation: {
+					required: true,
+					minLength: 3
+				},
+				valid: false,
+				touched: false
+			},
+			numberOfRooms: {
+				elementType: 'input',
+				elementConfig: {
+					type: 'Number',
+					placeholder: 'Number of Rooms'
+				},
+				value: '',
+				validation: {
+					required: true,
+					minLength: 1
+				},
+				valid: false,
+				touched: false
+			},
+			category: {
 				elementType: 'select',
 				elementConfig: {
-						options: [
-								{ value: 'landlord', displayValue: 'Landlord' },
-								{ value: 'tenant', displayValue: 'Tenant' }
-						]
+					options: [
+						{ value: 'cheap', displayValue: 'Cheap' },
+						{ value: 'medium', displayValue: 'Medium' },
+						{ value: "expensive", displayValue: 'Expensive' }
+					]
 				},
-				value: 'tenant',
+				value: 'cheap',
 				validation: {},
 				valid: true
-		}
+			},
+			
 		},
+		houseImages:''
 	}
-	componentDidMount() {
-		if (this.props.authRedirectPath !== '/') {
-			this.props.onSetAuthRedirectPath();
+	fileSelectorHandler=(event)=>{
+		this.setState({
+			houseImages:event.target.files[0]
+		})
+
+	}
+	houseAddHandler = (event) => {
+		event.preventDefault();
+		const houseData=new FormData()
+		for(let formElementIdentifier in this.state.controls){
+		houseData.append(formElementIdentifier,this.state.controls[formElementIdentifier].value)
 		}
+	houseData.append('houseImages',this.state.houseImages,this.state.houseImages.name);
+		this.props.onAddHouse(houseData);
+
 	}
 	inputChangedHandler = (event, controlName) => {
 		const updatedControls = {
@@ -118,13 +170,6 @@ class Signup extends Component {
 		}
 		this.setState({ controls: updatedControls })
 	}
-	submitHandler = (event) => {
-		event.preventDefault();
-		this.props.onSignup(this.state.controls.firstName.value, this.state.controls.lastName.value,
-			this.state.controls.phoneNumber.value, this.state.controls.email.value,
-			this.state.controls.password.value,this.state.controls.userType.value);
-	}
-
 	render() {
 		const formElementsArray = [];
 		for (let key in this.state.controls) {
@@ -141,43 +186,35 @@ class Signup extends Component {
 				value={ formElement.config.value }
 				required={ formElement.config.validation.required }
 				invalid={ !formElement.config.valid }
+				files={ formElement.config.files }
 				shouldValidate={ formElement.config.validation }
 				touched={ formElement.config.touched }
 				changed={ (event) => this.inputChangedHandler(event, formElement.id) } />
-
 		))
 
 		let errorMessage = null;
 
 		if (this.props.error) {
 			errorMessage = (
-				<p className={ classes.Error }>Some thing Went Wrong</p>
+				<p className="">Some thing Went Wrong</p>
 			);
 		}
 
-		let authRedirect = null;
-		if (this.props.isAuthenticated) {
-			authRedirect = <Redirect to={ this.props.authRedirectPath } />
-		}
+
 		return (
 			<div className={ classes.Auth }>
 				<div className={ classes.SectionAccount }>
 					<div className={ classes.Account }>
 						<div className={ classes.AccountForm }>
-							{ authRedirect }
-							<h2 className={ classes.PrimaryHeading }>Welcome To Murika Home</h2>
-							<div className={ classes.Row }>
 
-								<NavLink to="/login" activeClassName={ classes.active } className={ classes.Gbgcolor }>Login</NavLink>
-								<NavLink to="/auth" activeClassName={ classes.active } className={ classes.Gbgcolor }>New account</NavLink>
-							</div>
-							<form onSubmit={ this.submitHandler }>
+							<form onSubmit={ this.houseAddHandler }>
 								{ form }
+								<input type="file" onChange={this.fileSelectorHandler}/>
 								{ errorMessage }
 								<Button btnType="Success"> SUBMIT { this.props.loading ? <Spinner /> : '' } </Button>
-								<h4 className={ classes.LinkText }> <NavLink to="/login" className={ classes.Link }>Already have an account? </NavLink>	</h4>
+
 							</form>
-							
+
 						</div>
 					</div>
 				</div>
@@ -186,22 +223,16 @@ class Signup extends Component {
 	}
 
 }
-const mapStateToProps = state => {
-	return {
-		loading: state.signup.loading,
-		error: state.signup.error,
-		isAuthenticated: state.signup.token !== null,
-		authRedirectPath: state.signup.authRedirectPath
-	};
-};
-
+const mapStateToProps=state=>{
+	return{
+		loading:state.house.loading
+	}
+}
 const mapDispatchToProps = dispatch => {
 	return {
-		onSignup: (firstName, lastName, phoneNumber, email, password,userType ) => dispatch(
-			actions.signup(firstName, lastName, phoneNumber, email, password,userType)),
-			onSetAuthRedirectPath: () => dispatch(actions.setAuthRedirectPath('/'))
+			onAddHouse: (houseData) => dispatch(actions.addHouse(houseData))
 	};
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Signup);
 
+export default connect(mapStateToProps, mapDispatchToProps)(WithErrorHandler(AddHouse, axios));
