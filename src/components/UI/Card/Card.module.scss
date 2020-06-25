@@ -1,0 +1,47 @@
+* {
+margin: 0;
+padding: 0;
+}
+
+.Card {
+    background-color: var(--color-primary);
+    color: white;
+    border-radius: .4rem;
+    min-height: 33rem;
+    font-size: 1.6rem;
+    line-height: 2.4rem;
+    cursor: pointer;
+    border: .1rem solid rgb(230, 228, 228);
+    overflow: hidden;
+    box-shadow: 0 0 1.4rem rgba(39, 39, 39, 0.123);
+    margin: 1rem;
+    text-decoration: none;
+    display: inline-block;
+
+}
+.CardImage {
+    width: 100%;
+}
+
+.CardImage img {
+    width: 100%;
+    height: 22rem
+}
+.InfoGrid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    font-size: 1.2rem;
+    padding: 1rem;
+
+}
+
+@media screen and (max-width:400px){
+    .Card {
+        width: 90%;
+        margin: 1rem auto;
+    }
+}
+
+.FrontSide {
+    padding-bottom: 2rem;
+}

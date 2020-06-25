@@ -1,0 +1,62 @@
+@import "../../../sass/variables.scss";
+
+.Footer {
+  background-color: var(--color-primary);
+  width: 100%;
+  color: white;
+  margin-top: auto;
+}
+
+.TopFooter {
+  display: flex;
+  justify-content: space-around;
+  width: 80%;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  padding: 2rem;
+}
+
+.BottomFooter {
+  background-color: darken($color-primary, 10);
+  padding: 1rem;
+  width: 100%;
+}
+
+.FooterCard {
+  text-align: center;
+}
+
+.TopFooter ul li {
+  list-style: none;
+  line-height: 2.4rem;
+  font-size: 1.2rem;
+}
+
+.CopyRight {
+  font-size: 1.6rem;
+  text-align: center;
+  font-weight: lighter;
+}
+
+.BottomFooterContent {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.FooterUl li:first-child {
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+}
+.Link {
+  text-decoration: none;
+  color: white;
+}
+
+.Link:hover {
+  text-decoration: underline;
+  color: rgb(188, 230, 255);
+}

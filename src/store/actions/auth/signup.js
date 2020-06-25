@@ -19,7 +19,7 @@ export const signupFail = (error) => {
 	};
 };
 
-export const signup = (firstName, lastName, phoneNumber, email, password,userType ) => {
+export const signup = (firstName, lastName, phoneNumber, email, password, userType) => {
 	return {
 		type: actionTypes.SIGNUP_USER,
 		firstName: firstName,
@@ -27,7 +27,7 @@ export const signup = (firstName, lastName, phoneNumber, email, password,userTyp
 		phoneNumber: phoneNumber,
 		email: email,
 		password: password,
-		userType:userType,
+		userType: userType,
 	}
 };
 

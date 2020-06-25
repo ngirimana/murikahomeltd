@@ -24,3 +24,7 @@ export {
 	addHouseSuccess,
 	addHouseFail
 } from './house/house'
+
+export {
+	getFeaturedHouses
+} from './landing-page/featured-houses'

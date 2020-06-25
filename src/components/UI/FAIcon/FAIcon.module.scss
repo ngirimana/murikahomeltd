@@ -1,0 +1,16 @@
+.FAIcon {
+  color: #333;
+  font-size: 1.8rem;
+  margin: 0 1rem;
+  cursor: pointer;
+  transition: all.4s ease-in-out;
+}
+
+.FAIcon:hover {
+  color: #7db2de;
+  transform: scale(1.2);
+}
+
+.FAIcon:last-child:hover {
+  color: brown;
+}
