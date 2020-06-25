@@ -1,0 +1,24 @@
+.Carret {
+  display: block;
+  padding: 0.5rem;
+  margin: 1rem;
+  border-top: 0.3rem solid #7d808b;
+  border-left: 0.3rem solid #7d808b;
+  transform: rotate(45deg);
+}
+
+.Carret:last-child {
+  margin-top: -1rem;
+}
+
+.CarretContainer {
+  border: 0.2rem solid #ddd;
+  display: inline-block;
+  height: 5rem;
+  padding: 0.1rem;
+  border-radius: 2rem;
+}
+
+.CarretContainer:hover {
+  background-color: #ddd;
+}
