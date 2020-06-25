@@ -9,7 +9,7 @@ import Spinner from "../../components/UI/Spinner/Spinner";
 import LinkButton from "../../components/UI/LinkButton/LinkButton";
 import Pagination from "../../components/UI/Pagination/Pagination";
 import { paginate, defaultPageSize } from "../../helpers/helper-functions.js";
-
+import { Link } from "react-router-dom";
 const HomePage = (props) => {
   const [houses, setHouses] = useState([]);
   const [activePage, setActivePage] = useState(0);
@@ -137,12 +137,12 @@ const HomePage = (props) => {
 
         <div className={classes.CategoryContainer}>
           <div className={classes.CategoryCard}>
-            <div
+            <Link
               className={classes.CategoryHeader}
-              onClick={() => houseCategoryClickHandler("cheap")}
+              to="/houses/?category=cheap"
             >
               Cheap Houses
-            </div>
+            </Link>
             <p className={classes.CategoryText}>
               Easily find your next home at an affordable price through this
               category. Take your time and discover your next stylish home in
@@ -153,12 +153,12 @@ const HomePage = (props) => {
           </div>
 
           <div className={classes.CategoryCard}>
-            <div
+            <Link
               className={classes.CategoryHeader}
-              onClick={() => houseCategoryClickHandler("medium")}
+              to="/houses/?category=medium"
             >
               Medium Houses
-            </div>
+            </Link>
             <p className={classes.CategoryText}>
               With an ordinary price, you will be capable of searching various
               stunning, modern home with beautiful features included, all in
@@ -170,12 +170,12 @@ const HomePage = (props) => {
           </div>
 
           <div className={classes.CategoryCard}>
-            <div
+            <Link
               className={classes.CategoryHeader}
-              onClick={() => houseCategoryClickHandler("prominent")}
+              to="/houses/?category=prominent"
             >
               Prominent Houses
-            </div>
+            </Link>
 
             <p className={classes.CategoryText}>
               Looking for a smart home, comfort, and touch of luxury? Through
@@ -197,11 +197,13 @@ const HomePage = (props) => {
         </p>
         <div className={classes.HouseGrid}>{content}</div>
         <div className={classes.Pagination}>
-          <Pagination
-            onPageClick={changePageHandler}
-            totalPages={Math.ceil(featuredHouses.length / defaultPageSize)}
-            activePage={activePage}
-          />
+          {featuredHouses.length && (
+            <Pagination
+              onPageClick={changePageHandler}
+              totalPages={Math.ceil(featuredHouses.length / defaultPageSize)}
+              activePage={activePage}
+            />
+          )}
         </div>
       </div>
     </div>
