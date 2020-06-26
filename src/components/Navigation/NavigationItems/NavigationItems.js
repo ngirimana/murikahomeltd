@@ -11,7 +11,7 @@ const navigationItems = (props) => (
 
 		</Auxilary>
 
-			: <Auxilary> <NavigationItem link="/add-house">Add House</NavigationItem>
+			: <Auxilary> <NavigationItem link="/add-house">AddHouse</NavigationItem>
 				<NavigationItem link="/logout">Logout</NavigationItem></Auxilary> }
 
 
