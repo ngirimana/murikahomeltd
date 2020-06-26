@@ -6,8 +6,7 @@ import Button from '../../components/UI/Button/Button';
 import Spinner from '../../components/UI/Spinner/Spinner';
 import * as actions from '../../store/actions/index';
 import { checkValidity } from '../../shared/utility';
-import classes from './Auth.module.scss'
-
+import classes from './Auth.module.scss';
 
 
 
@@ -53,6 +52,7 @@ class Signin extends Component {
 			this.props.onSetAuthRedirectPath();
 		}
 	}
+
 	inputChangedHandler = (event, controlName) => {
 		const updatedControls = {
 			...this.state.controls,
@@ -65,10 +65,16 @@ class Signin extends Component {
 		}
 		this.setState({ controls: updatedControls })
 	}
-	submitHandler = (event) => {
+	submitHandler = async (event) => {
+		event.preventDefault();
+
 		event.preventDefault();
 		this.props.onSignin(this.state.controls.userName.value, this.state.controls.password.value);
+
 	}
+
+		
+	
 
 	render() {
 		const formElementsArray = [];

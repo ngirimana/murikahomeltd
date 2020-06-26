@@ -15,6 +15,7 @@ export const addHouseSuccess = ( houseData,) => {
 	return {
 		type: actionTypes.ADD_HOUSE_SUCCESS,
 		houseData: houseData,
+	
 	}
 }
 export const addHouse = (houseData) => {

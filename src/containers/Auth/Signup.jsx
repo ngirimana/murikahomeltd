@@ -123,6 +123,7 @@ class Signup extends Component {
 		this.props.onSignup(this.state.controls.firstName.value, this.state.controls.lastName.value,
 			this.state.controls.phoneNumber.value, this.state.controls.email.value,
 			this.state.controls.password.value,this.state.controls.userType.value);
+			
 	}
 
 	render() {

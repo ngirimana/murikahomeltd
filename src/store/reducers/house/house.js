@@ -4,7 +4,7 @@ import { updateObject } from '../../../shared/utility';
 const initialState = {
 	houses: [],
 	loading: false,
-	error: false
+	error: ''
 
 };
 
@@ -13,11 +13,11 @@ const addHouseStart = (state, action) => {
 
 }
 const addHouseSuccess = (state, action) => {
-	return updateObject(state, { houses: action.houseData })
+	return updateObject(state, { houses: action.houseData, loading: false })
 }
 
 const addHouseFail = (state, action) => {
-	return updateObject(state, { loading: false });
+	return updateObject(state, { error: action.error, loading: false });
 }
 
 const reducer = (state = initialState, action) => {

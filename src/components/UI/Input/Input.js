@@ -16,9 +16,9 @@ const input = (props) => {
                 className={ inputClasses.join(' ') }
                 { ...props.elementConfig }
                 value={ props.value }
-                required={props.required}
+                required={ props.required }
                 onChange={ props.changed }
-                 />;
+            />;
             break;
         case ('textarea'):
             inputElement = <textarea
@@ -34,11 +34,12 @@ const input = (props) => {
                     value={ props.value }
                     onChange={ props.changed }>
                     { props.elementConfig.options.map(option => (
-                        <option key={ option.value } value={ option.value }>
+                        <option key={ option.value } disabled={ option.disabled } selected={ option.selected } value={ option.value } >
                             { option.displayValue }
                         </option>
-                    )) }
-                </select>
+                    ))
+                    }
+                </select >
             );
             break;
         default:

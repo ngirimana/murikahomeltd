@@ -26,7 +26,6 @@ class App extends Component {
 
         <Route path="/login" component={ asyncLogin } />
         <Route path="/auth" component={ asyncSignup } />
-        <Route path="/add-house" component={ asyncAddHouse } />
         <Redirect to="/" />
       </Switch>
     );
