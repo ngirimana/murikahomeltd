@@ -1,4 +1,4 @@
-import axios from 'axios'
+import axios from '../../../custom-axios'
 import { put } from 'redux-saga/effects';
 import decode from 'jwt-decode';
 import * as actions from '../../actions/index';
@@ -13,9 +13,9 @@ export function* signupUserSaga(action) {
 		password: action.password,
 		userType:action.userType,
 	};
-	const url = 'https://murika.herokuapp.com/api/v1/auth/signup';
+	
 	try {
-		const response = yield axios.post(url, signupData)
+		const response = yield axios.post('/auth/signup', signupData)
 		const { exp } = decode(response.data.token);
 		yield localStorage.setItem('expirationDate', exp);
 		yield localStorage.setItem('token', response.data.token);

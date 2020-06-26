@@ -1,11 +1,11 @@
 @import './mixins';
 @import './variables';
-.row {
+.Row {
 	max-width: $grid-width;
 	margin: 0 auto;
 
 	&:not(:last-child) {
-			margin-bottom: $gutter-vertical;
+			margin-bottom: 2rem
 	}
 	
 	@include clearfix;
@@ -18,7 +18,7 @@
 			}
 	}
 
-	.col1of2 {
+	.Col1of2 {
 			width: calc((100% - #{$gutter-horizontal}) / 2);
 			
 	}

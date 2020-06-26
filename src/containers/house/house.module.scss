@@ -1,0 +1,69 @@
+@import '../../sass/grid';
+
+.House{
+	top:7rem;
+	left: 0;
+	margin: 7rem auto;
+}
+
+.HouseForm{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 2rem;
+	align-content: space-around;
+}
+.LabelField{
+	width: 65%;
+	margin: 0 auto;
+	display: grid;
+	grid-template-columns: 1fr 1.5fr 1fr ;
+	background-color: var(--color-grey-light-1);
+	color:var(--color-grey-light-2);
+	grid-gap: 0.5rem;
+	font-size: 1.6rem;
+	padding: .6rem 1rem;
+
+}
+.FilesInput{
+	display: block;
+	width: 65%;
+	margin: 0 auto;
+	margin-top: 1rem;
+	background-color: var(--color-grey-light-1);
+	color:var(--color-grey-light-2);
+	font-size: 1.6rem;
+	padding: .6rem 1rem;
+}
+.HouseButton{
+	width: 30%;
+	margin: 3rem auto;
+}
+.PrimaryHeading{
+	text-align: center;
+	font-size: 2rem;
+	text-transform: uppercase;
+	font-weight: 700;
+	display: block;
+	background-image: linear-gradient(to right, var(--color-primary), var(--color-primary-dark));
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+	letter-spacing: .2rem;
+	transition: all .2s;
+}
+.PrimaryHeading:hover{
+	transform: skewY(2deg) skewX(7deg) scale(1.1);
+        text-shadow: .5rem 1rem 2rem rgba(var(--color-secondary), .2);
+}
+@media (max-width:600px){
+.HouseForm{	display: grid;
+	grid-template-columns: 1fr ;
+}
+	.FilesInput{
+		display: block;
+		width: 84%;
+	}
+	.LabelField{
+		width: 84%;
+	}
+}

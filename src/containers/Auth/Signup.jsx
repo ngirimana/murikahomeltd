@@ -4,7 +4,7 @@ import { Redirect, NavLink } from 'react-router-dom'
 import Input from '../../components/UI/Input/Input';
 import Button from '../../components/UI/Button/Button';
 import classes from './Auth.module.scss';
-import Spinner from '../../components/UI/Spinner/Spinner'
+import Spinner from '../../components/UI/Spinner/Spinner';
 import * as actions from '../../store/actions/index';
 import { checkValidity } from '../../shared/utility';
 
@@ -123,6 +123,7 @@ class Signup extends Component {
 		this.props.onSignup(this.state.controls.firstName.value, this.state.controls.lastName.value,
 			this.state.controls.phoneNumber.value, this.state.controls.email.value,
 			this.state.controls.password.value,this.state.controls.userType.value);
+			
 	}
 
 	render() {

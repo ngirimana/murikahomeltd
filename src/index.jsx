@@ -9,24 +9,28 @@ import './index.scss';
 import App from './App.jsx';
 import * as serviceWorker from './serviceWorker';
 
-import signupReducer from './store/reducers/auth/signup.jsx';
-import loginReducer from './store/reducers/auth/signin.jsx'
-import { watchSignup, watchLogin } from './store/sagas/index.jsx';
+import signupReducer from './store/reducers/auth/signup.js';
+import loginReducer from './store/reducers/auth/signin.js';
+import houseReducer from './store/reducers/house/house.js';
+import { watchSignup, watchLogin,watchAddHouse } from './store/sagas/index.js';
 
 const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null ||
   compose;
 
 const rootReducer = combineReducers({
   signup: signupReducer,
-  login: loginReducer
+  login: loginReducer,
+  house:houseReducer
+
 });
-const sagaMiddleware = createSagaMiddleware()
+const sagaMiddleware = createSagaMiddleware();
 const store = createStore(rootReducer, composeEnhancers(
   applyMiddleware(thunk, sagaMiddleware)
 ));
 
 sagaMiddleware.run(watchSignup);
 sagaMiddleware.run(watchLogin);
+sagaMiddleware.run(watchAddHouse);
 
 
 ReactDOM.render(
