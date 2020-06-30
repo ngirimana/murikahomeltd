@@ -78,6 +78,21 @@ class AddHouse extends Component {
 				valid: false,
 				touched: false
 			},
+			size: {
+				elementType: 'input',
+				elementConfig: {
+					type: 'Number',
+					placeholder: 'Size in Length * Width'
+				},
+				value: '',
+				validation: {
+					required: false,
+					minLength: 1,
+					maxLength: 3
+				},
+				valid: false,
+				touched: false
+			},
 			monthlyRent: {
 				elementType: 'input',
 				elementConfig: {
@@ -107,19 +122,7 @@ class AddHouse extends Component {
 				valid: false,
 				touched: false
 			},
-			priceStatus: {
-				elementType: 'select',
-				elementConfig: {
-					options: [
-						{ value: '', disabled: true, seclected: true, displayValue: 'Choose Price Status' },
-						{ value: 'negotiable', displayValue: 'Negotiable' },
-						{ value: 'fixed', displayValue: 'Fixed' },
-					]
-				},
-				value: '',
-				validation: {},
-				valid: true
-			},
+
 			aboutProperty: {
 				elementType: 'textarea',
 				elementConfig: {
@@ -139,6 +142,19 @@ class AddHouse extends Component {
 
 		},
 		controls1: {
+			priceStatus: {
+				elementType: 'select',
+				elementConfig: {
+					options: [
+						{ value: '', disabled: true, seclected: true, displayValue: 'Choose Price Status' },
+						{ value: 'negotiable', displayValue: 'Negotiable' },
+						{ value: 'fixed', displayValue: 'Fixed' },
+					]
+				},
+				value: '',
+				validation: {},
+				valid: true
+			},
 			leaseDatails: {
 				elementType: 'textarea',
 				elementConfig: {
