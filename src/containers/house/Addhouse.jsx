@@ -48,6 +48,51 @@ class AddHouse extends Component {
 				valid: false,
 				touched: false
 			},
+			bedRooms: {
+				elementType: 'input',
+				elementConfig: {
+					type: 'Number',
+					placeholder: 'Number of bed rooms'
+				},
+				value: '',
+				validation: {
+					required: true,
+					minLength: 1,
+					maxLength: 3
+				},
+				valid: false,
+				touched: false
+			},
+			bathRooms: {
+				elementType: 'input',
+				elementConfig: {
+					type: 'Number',
+					placeholder: 'Number of bath rooms'
+				},
+				value: '',
+				validation: {
+					required: true,
+					minLength: 1,
+					maxLength: 3
+				},
+				valid: false,
+				touched: false
+			},
+			size: {
+				elementType: 'input',
+				elementConfig: {
+					type: 'Number',
+					placeholder: 'Size in Length * Width'
+				},
+				value: '',
+				validation: {
+					required: false,
+					minLength: 1,
+					maxLength: 3
+				},
+				valid: false,
+				touched: false
+			},
 			monthlyRent: {
 				elementType: 'input',
 				elementConfig: {
@@ -77,19 +122,7 @@ class AddHouse extends Component {
 				valid: false,
 				touched: false
 			},
-			priceStatus: {
-				elementType: 'select',
-				elementConfig: {
-					options: [
-						{ value: '', disabled: true, seclected: true, displayValue: 'Choose Price Status' },
-						{ value: 'negotiable', displayValue: 'Negotiable' },
-						{ value: 'fixed', displayValue: 'Fixed' },
-					]
-				},
-				value: '',
-				validation: {},
-				valid: true
-			},
+
 			aboutProperty: {
 				elementType: 'textarea',
 				elementConfig: {
@@ -104,6 +137,23 @@ class AddHouse extends Component {
 				},
 				valid: false,
 				touched: false
+			},
+
+
+		},
+		controls1: {
+			priceStatus: {
+				elementType: 'select',
+				elementConfig: {
+					options: [
+						{ value: '', disabled: true, seclected: true, displayValue: 'Choose Price Status' },
+						{ value: 'negotiable', displayValue: 'Negotiable' },
+						{ value: 'fixed', displayValue: 'Fixed' },
+					]
+				},
+				value: '',
+				validation: {},
+				valid: true
 			},
 			leaseDatails: {
 				elementType: 'textarea',
@@ -134,8 +184,6 @@ class AddHouse extends Component {
 				valid: false,
 				touched: false
 			},
-		},
-		controls1: {
 			sector: {
 				elementType: 'input',
 				elementConfig: {
@@ -164,50 +212,6 @@ class AddHouse extends Component {
 				valid: false,
 				touched: false
 			},
-			fullName: {
-				elementType: 'input',
-				elementConfig: {
-					type: 'text',
-					placeholder: 'Full Name of House Owner '
-				},
-				value: '',
-				validation: {
-					required: true,
-					minLength: 1,
-					maxLength: 255
-				},
-				valid: false,
-				touched: false
-			},
-			phone: {
-				elementType: 'input',
-				elementConfig: {
-					type: 'text',
-					placeholder: 'Phone Number of House Owner '
-				},
-				value: '',
-				validation: {
-					required: true,
-					minLength: 10,
-					maxLength: 13
-				},
-				valid: false,
-				touched: false
-			},
-			email: {
-				elementType: 'input',
-				elementConfig: {
-					type: 'text',
-					placeholder: 'Email of House Owner '
-				},
-				value: '',
-				validation: {
-					required: true,
-					isEmail: true
-				},
-				valid: false,
-				touched: false
-			}
 		},
 		parking: false,
 		gated: false,
