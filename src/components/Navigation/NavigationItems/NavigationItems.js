@@ -13,8 +13,6 @@ const navigationItems = (props) => (
 
 			: <Auxilary> <NavigationItem link="/add-house">AddHouse</NavigationItem>
 				<NavigationItem link="/logout">Logout</NavigationItem></Auxilary> }
-
-
 	</ul>
 );
 
