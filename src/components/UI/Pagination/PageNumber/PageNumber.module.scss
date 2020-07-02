@@ -1,0 +1,19 @@
+.PageNumber {
+    background-color: #F4F4F4;
+    padding: .5rem 1rem;
+    cursor: pointer;
+    margin: .2rem;
+    font-weight: bold;
+    transition: all .4s ease-in-out;
+    font-size: 1.6rem;
+    color: #6d6d6d;
+    height: 4rem;
+}
+
+.PageNumber:hover {
+    transform: scale(1.2);
+    background-color: #e7e7e7;
+}
+.Active {
+    color: #F9A620;
+}

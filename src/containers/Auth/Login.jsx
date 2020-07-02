@@ -56,10 +56,10 @@ class Signin extends Component {
 	inputChangedHandler = (event, controlName) => {
 		const updatedControls = {
 			...this.state.controls,
-			[ controlName ]: {
-				...this.state.controls[ controlName ],
+			[controlName]: {
+				...this.state.controls[controlName],
 				value: event.target.value,
-				valid: checkValidity(event.target.value, this.state.controls[ controlName ].validation),
+				valid: checkValidity(event.target.value, this.state.controls[controlName].validation),
 				touched: true
 			}
 		}
@@ -81,20 +81,20 @@ class Signin extends Component {
 		for (let key in this.state.controls) {
 			formElementsArray.push({
 				id: key,
-				config: this.state.controls[ key ]
+				config: this.state.controls[key]
 			});
 		}
 		let form = formElementsArray.map(formElement => (
 			<Input
-				key={ formElement.id }
-				elementType={ formElement.config.elementType }
-				elementConfig={ formElement.config.elementConfig }
-				value={ formElement.config.value }
-				required={ formElement.config.validation.required }
-				invalid={ !formElement.config.valid }
-				shouldValidate={ formElement.config.validation }
-				touched={ formElement.config.touched }
-				changed={ (event) => this.inputChangedHandler(event, formElement.id) } />
+				key={formElement.id}
+				elementType={formElement.config.elementType}
+				elementConfig={formElement.config.elementConfig}
+				value={formElement.config.value}
+				required={formElement.config.validation.required}
+				invalid={!formElement.config.valid}
+				shouldValidate={formElement.config.validation}
+				touched={formElement.config.touched}
+				changed={(event) => this.inputChangedHandler(event, formElement.id)} />
 
 		))
 
@@ -102,35 +102,35 @@ class Signin extends Component {
 
 		if (this.props.error) {
 			errorMessage = (
-				<p className={ classes.Error }>Some thing Went Wrong</p>
+				<p className={classes.Error}>Some thing Went Wrong</p>
 			);
 		}
 
 		let authRedirect = null;
 		if (this.props.isAuthenticated) {
-			authRedirect = <Redirect to={ this.props.authRedirectPath } />
+			authRedirect = <Redirect to={this.props.authRedirectPath} />
 		}
 
 		return (
-			<div className={ classes.Auth }>
-				<div className={ classes.SectionAccount }>
-					<div className={ classes.LoginHeight }>
-						<div className={ classes.AccountForm }>
-							{ authRedirect }
-							<h2 className={ classes.PrimaryHeading }>Welcome Back </h2>
-							<div className={ classes.Row }>
+			<div className={classes.Auth}>
+				<div className={classes.SectionAccount}>
+					<div className={classes.LoginHeight}>
+						<div className={classes.AccountForm}>
+							{authRedirect}
+							<h2 className={classes.PrimaryHeading}>Welcome Back </h2>
+							<div className={classes.Row}>
 
-								<span className={ classes.LinkText }>	<NavLink to="/login" activeClassName={ classes.active } className={ classes.Gbgcolor }>Login</NavLink></span>
-								<span className={ classes.LinkText }>	<NavLink to="/auth" activeClassName={ classes.active } className={ classes.Gbgcolor }>New account</NavLink></span>
+								<span className={classes.LinkText}>	<NavLink to="/login" activeClassName={classes.active} className={classes.Gbgcolor}>Login</NavLink></span>
+								<span className={classes.LinkText}>	<NavLink to="/auth" activeClassName={classes.active} className={classes.Gbgcolor}>New account</NavLink></span>
 							</div>
 
 
 
-							<form onSubmit={ this.submitHandler }>
-								{ form }
-								{ errorMessage }
-								<Button btnType="Success"> Log in { this.props.loading ? <Spinner /> : '' } </Button>
-								<h4 className={ classes.LinkText }> <NavLink to="/" className={ classes.Link }>Forgot Password?</NavLink>	</h4>
+							<form onSubmit={this.submitHandler}>
+								{form}
+								{errorMessage}
+								<Button btnType="Success"> Log in {this.props.loading ? <Spinner /> : ''} </Button>
+								<h4 className={classes.LinkText}> <NavLink to="/" className={classes.Link}>Forgot Password?</NavLink>	</h4>
 							</form>
 
 						</div>

@@ -1,0 +1,414 @@
+@import "../../sass/variables";
+$grey-text-color: #838383;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.Header {
+  margin-top: 5.6rem;
+  width: 100%;
+  background: linear-gradient(
+      to bottom,
+      rgba(51, 51, 51, 0.711),
+      rgba(221, 221, 221, 0.151)
+    ),
+    url(../../assets/images/Landing.jpg);
+  background-repeat: no-repeat;
+  min-height: 90vh;
+  background-size: cover;
+  position: relative;
+  background-position: bottom;
+}
+
+.WelcomeHeader {
+  color: white;
+  text-align: center;
+  font-size: 1.6rem;
+  width: 80%;
+  padding: 0.2rem;
+  font-weight: 500;
+  letter-spacing: 0.2rem;
+  text-shadow: 0.1rem 0.1rem 0.4rem rgba(51, 51, 51, 0.63);
+  height: 20rem;
+  margin: 0 auto;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  top: 20%;
+  transform: translate(-50%);
+}
+
+.HomePageHeading {
+  color: white;
+  font-size: 5rem;
+  letter-spacing: 0.5rem;
+  text-shadow: 0.1rem 0.1rem 0.4rem #333;
+  text-align: center;
+  width: 100%;
+  margin-top: 1rem;
+  animation: slideRight 0.5s ease-in-out;
+  position: relative;
+  animation-delay: 0.1s;
+}
+
+.Heading {
+  text-align: center;
+  text-transform: capitalize;
+  color: $grey-text-color;
+  font-size: 3.2rem;
+  font-weight: normal;
+  letter-spacing: 0.2rem;
+  margin-top: 2rem;
+}
+.WelcomeHeader {
+  top: 10%;
+}
+
+.TextDescription {
+  font-size: 1.6rem;
+  color: $grey-text-color;
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  line-height: 3rem;
+}
+
+.FeaturedSection {
+  min-height: 40rem;
+}
+
+.WelcomeMessage {
+  text-transform: uppercase;
+  letter-spacing: 0.4rem;
+  line-height: 3rem;
+  animation: slideLeft 0.5s ease-in-out;
+  position: relative;
+  animation-delay: 0.1s;
+  text-align: center;
+  display: inline-block;
+  width: 50%;
+  padding: 2rem;
+}
+.SearchInput {
+  height: 4.5rem;
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 0.4rem;
+  margin: 0.1rem;
+  margin-right: 0.5rem;
+  border: none;
+}
+.SearchInput:focus {
+  outline: none;
+  font-size: 1.6rem;
+  color: $grey-text-color;
+}
+.SearchSection {
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  background-color: var(--color-primary);
+  padding: 0.1rem;
+  border-radius: 0.4rem;
+  height: 5rem;
+  border: 0.1rem solid rgb(124, 124, 124);
+  animation: slideTop 0.5s ease-in-out;
+  animation-delay: 0.5s;
+  animation-fill-mode: backwards;
+  width: 50%;
+}
+.SearchIcon {
+  font-size: 4rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+.HouseGrid {
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 2rem;
+}
+
+.CategorySection {
+  width: 80%;
+  padding: 1rem;
+  margin: 1rem auto;
+}
+
+.CategoryContainer {
+  display: flex;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 2rem;
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.4rem;
+  text-align: justify;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.CategoryCard {
+  padding: 2rem;
+  box-shadow: 0 0 0.2rem #b9b9b960;
+  text-align: center;
+  color: $grey-text-color;
+  background-color: grey;
+  width: calc(96% / 3);
+}
+
+.CategoryHeading {
+  text-align: center;
+  font-size: 2.4rem;
+  color: #838383;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  margin: 1rem;
+}
+
+.CategoryHeader {
+  background-color: var(--color-primary);
+  padding: 0.5rem 1rem;
+  display: inline-block;
+  margin: 0.5rem auto;
+  font-weight: 1.8rem;
+  border-radius: 0.4rem;
+  font-weight: 400;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.5s;
+}
+
+.CategoryHeader:hover {
+  background-color: darken($color-primary, 10);
+  box-shadow: 0 0 0.4rem $secondary-shadow;
+  transform: scale(1.1);
+}
+
+.CategoryText {
+  text-align: justify;
+  font-weight: lighter;
+  color: white;
+  line-height: 2.8rem;
+  margin-bottom: 2rem;
+}
+
+.HomePage {
+  background-color: #eff6ee;
+}
+
+.FeaturedSection {
+  background-color: #fff8f0;
+  padding: 0.5rem;
+  margin-top: 4em;
+}
+
+.WelcomeButtonContainer {
+  margin-top: 5rem;
+}
+
+.IntroSection {
+  background-color: #eaf0ce;
+  // background-color: var(--color-primary);
+}
+
+.IntroContainer {
+  margin: 0 auto;
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.Intro {
+  margin: 3rem;
+  font-size: 1.6rem;
+  letter-spacing: 0.1rem;
+  line-height: 3rem;
+  color: $grey-text-color;
+  font-weight: normal;
+  text-align: justify;
+  padding: 1rem;
+  width: calc(50% - 6rem);
+}
+
+.Intro h3 {
+  margin: 1rem 0;
+  font-size: 2.4rem;
+  font-weight: 500;
+}
+.PriceTag {
+  color: #f9a620;
+  font-weight: bold;
+  text-shadow: 0 0 0.2rem #333;
+  display: inline-block;
+  padding: 0 0.2rem;
+}
+@keyframes slideRight {
+  0% {
+    left: -10rem;
+    opacity: 0;
+  }
+  20% {
+    left: -5rem;
+    opacity: 0.5;
+  }
+
+  60% {
+    left: -2.5rem;
+    opacity: 0.7;
+  }
+  80% {
+    left: -1rem;
+    opacity: 0.9;
+  }
+
+  100% {
+    left: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    right: -20rem;
+    opacity: 0;
+  }
+  20% {
+    right: -10rem;
+    opacity: 0.5;
+  }
+
+  60% {
+    right: -5rem;
+    opacity: 0.8;
+  }
+  80% {
+    right: -2rem;
+    opacity: 0.9;
+  }
+
+  100% {
+    right: 0;
+    opacity: 1;
+  }
+}
+
+@keyframes slideTop {
+  0% {
+    bottom: -10rem;
+    opacity: 0;
+  }
+  20% {
+    bottom: -5rem;
+    opacity: 0.5;
+  }
+
+  60% {
+    bottom: -2.5rem;
+    opacity: 0.7;
+  }
+  80% {
+    bottom: -1rem;
+    opacity: 0.9;
+  }
+
+  100% {
+    bottom: 0;
+    opacity: 1;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .WelcomeMessage {
+    width: 80%;
+  }
+
+  .SearchSection {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .SearchSection {
+    width: 100%;
+  }
+  .WelcomeMessage {
+    width: 100%;
+  }
+  .HouseGrid {
+    width: 90%;
+  }
+}
+@media screen and (max-width: 730px) {
+  .HouseGrid {
+    width: 100%;
+    justify-content: space-evenly;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .IntroSection {
+    width: 100%;
+  }
+
+  .IntroContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .TextDescription {
+    width: 80%;
+  }
+
+  .Heading {
+    width: 80%;
+    text-align: center;
+    margin: 1rem auto;
+  }
+}
+
+@media screen and (max-width: 615px) {
+  .IntroContainer {
+    flex-direction: column;
+  }
+  .Intro {
+    width: 100%;
+    margin: 0;
+  }
+
+  .CategoryContainer {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .CategoryCard {
+    width: 100%;
+    margin: 1rem 0;
+  }
+
+  .WelcomeHeader {
+    top: 2%;
+  }
+
+  .HomePageHeading {
+    font-size: 3.2rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .HouseGrid {
+    grid-template-columns: 1fr;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  .CategoryContainer {
+    grid-template-columns: 1fr;
+  }
+}

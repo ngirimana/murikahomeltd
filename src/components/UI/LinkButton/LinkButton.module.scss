@@ -1,0 +1,50 @@
+@import '../../../sass/variables.scss';
+
+.LinkButton {
+    text-decoration: none;
+    background-color: var(--color-primary);
+    color: white;
+    padding: 1.5rem 2rem;
+    text-transform: uppercase;
+    display: inline-block;
+    margin: 1rem;
+    transition: all .5s;
+    border-radius: .4rem;
+    box-shadow: 0 0 1rem $primary-shadow;
+
+}
+
+.LinkButton span {
+    position: relative;
+    transition: .5s;
+    display: inline-block;
+    cursor: pointer;
+}
+.LinkButton span:after {
+    content: '\00bb';
+    position: absolute;
+    top: 0;
+    right: -2rem;
+    transition: .5s;
+    opacity: 0;
+}
+
+.LinkButton:hover span{
+    padding-right: 2.5rem;
+
+}
+
+.LinkButton:hover span:after{
+    opacity: 1;
+    right: 0;
+
+}
+
+.LinkButton:hover {
+    transform: translateY(-.3rem);
+    background-color: darken($color-primary, 10);
+}
+.LinkButton:active {
+    transform: translate(0);
+    box-shadow: 0 0 .5rem $secondary-shadow;
+}
