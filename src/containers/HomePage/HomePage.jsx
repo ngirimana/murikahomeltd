@@ -50,10 +50,6 @@ const HomePage = (props) => {
 
   // House category handler
 
-  const houseCategoryClickHandler = (category) => {
-    props.history.push(`/houses/?category=${category}`);
-  };
-
   // replace spinner with houses after loading.
 
   if (!props.loading) {
@@ -188,24 +184,23 @@ const HomePage = (props) => {
           </div>
         </div>
       </section>
-
-      <div className={classes.FeaturedSection}>
-        <h1 className={classes.Heading}>Featured Properties for rent</h1>
-        <p className={classes.TextDescription}>
-          Discover thousands of houses and apartments for rent in Rwanda and
-          take a deep dive to see if they are right for you.
-        </p>
-        <div className={classes.HouseGrid}>{content}</div>
-        <div className={classes.Pagination}>
-          {featuredHouses.length && (
+      {featuredHouses.length > 0 && (
+        <div className={classes.FeaturedSection}>
+          <h1 className={classes.Heading}>Featured Properties for rent</h1>
+          <p className={classes.TextDescription}>
+            Discover thousands of houses and apartments for rent in Rwanda and
+            take a deep dive to see if they are right for you.
+          </p>
+          <div className={classes.HouseGrid}>{content}</div>
+          <div className={classes.Pagination}>
             <Pagination
               onPageClick={changePageHandler}
               totalPages={Math.ceil(featuredHouses.length / defaultPageSize)}
               activePage={activePage}
             />
-          )}
+          </div>
         </div>
-      </div>
+      )}
     </div>
   );
 };
