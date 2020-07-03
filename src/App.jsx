@@ -6,8 +6,9 @@ import Layout from "./hoc/Layout/Layout";
 import Logout from "./containers/Auth/Logout/Logout";
 import HomePage from "./containers/HomePage/HomePage";
 import classes from "./App.module.scss";
-
+import HousePage from "./containers/HousesPage/Houses";
 import * as actions from "./store/actions/index";
+
 const asyncSignup = asyncComponent(() => {
   return import("./containers/Auth/Signup.jsx");
 });
@@ -28,7 +29,7 @@ class App extends Component {
       <Switch>
         <Route path="/login" component={asyncLogin} />
         <Route path="/auth" component={asyncSignup} />
-        <Route path="/houses/" exact component={HomePage} />
+        <Route path="/houses/" exact component={HousePage} />
         <Route path="/houses/:id" exact component={HomePage} />
         <Route
           path="/houses/search-result/:searchQuery"

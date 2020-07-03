@@ -1,0 +1,28 @@
+.HousePage {
+  background-color: #333;
+  background-color: #ebe7e7;
+  padding: 10rem;
+}
+
+.HouseContainer {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.PageHeading {
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  color: #5c5c5c;
+  font-size: 1.8rem;
+  font-weight: 400;
+  text-shadow: 0 0 0.1rem #333;
+  padding: 0.3rem 2rem;
+  border-bottom: 0.2rem solid #ddd;
+  display: inline-block;
+  text-align: center;
+  margin-left: 1rem;
+}
+
+.FilterSection {
+  width: 100%;
+  display: flex;
+}
