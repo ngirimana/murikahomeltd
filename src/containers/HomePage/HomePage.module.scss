@@ -66,6 +66,14 @@ $grey-text-color: #838383;
 .WelcomeHeader {
   top: 10%;
 }
+.CategoryHeading {
+  text-align: center;
+  font-size: 2.4rem;
+  color: #838383;
+  letter-spacing: 0.2rem;
+  text-transform: uppercase;
+  margin: 1rem;
+}
 
 .TextDescription {
   font-size: 1.6rem;
@@ -100,10 +108,10 @@ $grey-text-color: #838383;
   margin: 0.1rem;
   margin-right: 0.5rem;
   border: none;
+  font-size: 1.6rem;
 }
 .SearchInput:focus {
   outline: none;
-  font-size: 1.6rem;
   color: $grey-text-color;
 }
 .SearchSection {
@@ -153,52 +161,6 @@ $grey-text-color: #838383;
   text-align: justify;
   flex-wrap: wrap;
   justify-content: space-between;
-}
-
-.CategoryCard {
-  padding: 2rem;
-  box-shadow: 0 0 0.2rem #b9b9b960;
-  text-align: center;
-  color: $grey-text-color;
-  background-color: grey;
-  width: calc(96% / 3);
-}
-
-.CategoryHeading {
-  text-align: center;
-  font-size: 2.4rem;
-  color: #838383;
-  letter-spacing: 0.2rem;
-  text-transform: uppercase;
-  margin: 1rem;
-}
-
-.CategoryHeader {
-  background-color: var(--color-primary);
-  padding: 0.5rem 1rem;
-  display: inline-block;
-  margin: 0.5rem auto;
-  font-weight: 1.8rem;
-  border-radius: 0.4rem;
-  font-weight: 400;
-  color: #fff;
-  cursor: pointer;
-  transition: 0.5s;
-  text-decoration: none;
-}
-
-.CategoryHeader:hover {
-  background-color: darken($color-primary, 10);
-  box-shadow: 0 0 0.4rem $secondary-shadow;
-  transform: scale(1.1);
-}
-
-.CategoryText {
-  text-align: justify;
-  font-weight: lighter;
-  color: white;
-  line-height: 2.8rem;
-  margin-bottom: 2rem;
 }
 
 .HomePage {

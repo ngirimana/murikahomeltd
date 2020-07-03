@@ -1,0 +1,29 @@
+@import "../../../sass/variables.scss";
+$grey-text-color: #838383;
+.CategoryCard {
+  padding: 2rem;
+  box-shadow: 0 0 0.2rem #b9b9b960;
+  text-align: center;
+  color: $grey-text-color;
+  background-color: grey;
+  width: calc(96% / 3);
+  text-decoration: none;
+  border-radius: 0.4rem;
+}
+
+.CategoryHeader {
+  color: white;
+  margin: 1rem;
+}
+
+.CategoryText {
+  text-align: justify;
+  font-weight: lighter;
+  color: white;
+  line-height: 2.8rem;
+  margin-bottom: 2rem;
+}
+
+.CategoryCard:hover {
+  background-color: darken(grey, 4);
+}

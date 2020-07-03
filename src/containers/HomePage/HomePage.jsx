@@ -9,7 +9,13 @@ import Spinner from "../../components/UI/Spinner/Spinner";
 import LinkButton from "../../components/UI/LinkButton/LinkButton";
 import Pagination from "../../components/UI/Pagination/Pagination";
 import { paginate, defaultPageSize } from "../../helpers/helper-functions.js";
-import { Link } from "react-router-dom";
+
+import ProminentIcon from "../../assets/images/prominent.svg";
+import MediumIcon from "../../assets/images/medium.svg";
+import CheapIcon from "../../assets/images/cheap.svg";
+
+import CategoryCard from "../../components/UI/CategoryCard/CategoryCard";
+
 const HomePage = (props) => {
   const [houses, setHouses] = useState([]);
   const [activePage, setActivePage] = useState(0);
@@ -79,11 +85,11 @@ const HomePage = (props) => {
             Easily find houses for rent at an affordable price any where in
             Rwanda.
           </p>
-          <div className={classes.SearchSection}>
+          <div className={classes.SearchSection} id="#top">
             <input
               type="search"
               className={classes.SearchInput}
-              placeholder="Search for houses"
+              placeholder="Where do you want to live ?"
               value={searchString}
               onChange={(e) => setSearchString(e.target.value)}
             />
@@ -132,56 +138,42 @@ const HomePage = (props) => {
         <h1 className={classes.CategoryHeading}>House Categories</h1>
 
         <div className={classes.CategoryContainer}>
-          <div className={classes.CategoryCard}>
-            <Link
-              className={classes.CategoryHeader}
-              to="/houses/?category=cheap"
-            >
-              Cheap Houses
-            </Link>
-            <p className={classes.CategoryText}>
-              Easily find your next home at an affordable price through this
-              category. Take your time and discover your next stylish home in
-              different location in agreement with your financial status. The
-              price for rent vary bellow
-              <span className={classes.PriceTag}>50, 000 RWF</span>.
-            </p>
-          </div>
+          <CategoryCard
+            title="Cheap Houses"
+            link="/houses/?category=cheap"
+            icon={CheapIcon}
+          >
+            Easily find your next home at an affordable price through this
+            category. Take your time and discover your next stylish home in
+            different location in agreement with your financial status. The
+            price for rent vary bellow{" "}
+            <span className={classes.PriceTag}>50, 000 RWF</span>.
+          </CategoryCard>
 
-          <div className={classes.CategoryCard}>
-            <Link
-              className={classes.CategoryHeader}
-              to="/houses/?category=medium"
-            >
-              Medium Houses
-            </Link>
-            <p className={classes.CategoryText}>
-              With an ordinary price, you will be capable of searching various
-              stunning, modern home with beautiful features included, all in
-              this category. Pick out your home in agreement with your sake. The
-              price for rent vary between
-              <span className={classes.PriceTag}>50, 001 RWF</span> and
-              <span className={classes.PriceTag}>150, 000 RWF</span>.{" "}
-            </p>
-          </div>
+          <CategoryCard
+            title="Medium Houses"
+            link="/houses/?category=medium"
+            icon={MediumIcon}
+          >
+            With an ordinary price, you will be capable of searching various
+            stunning, modern home with beautiful features included, all in this
+            category. Pick out your home in agreement with your sake. The price
+            for rent vary between{" "}
+            <span className={classes.PriceTag}>50, 001 RWF</span> and
+            <span className={classes.PriceTag}>150, 000 RWF</span>.{" "}
+          </CategoryCard>
 
-          <div className={classes.CategoryCard}>
-            <Link
-              className={classes.CategoryHeader}
-              to="/houses/?category=prominent"
-            >
-              Prominent Houses
-            </Link>
-
-            <p className={classes.CategoryText}>
-              Looking for a smart home, comfort, and touch of luxury? Through
-              this category, with various search filters, you will be able to
-              browse and choose perfect home for you according to your desire
-              and interest at an acceptable price. The prices for rent vary
-              above
-              <span className={classes.PriceTag}>150,000 RWF</span>.
-            </p>
-          </div>
+          <CategoryCard
+            title="Prominent Houses"
+            link="/houses/?category=prominent"
+            icon={ProminentIcon}
+          >
+            Looking for a smart home, comfort, and touch of luxury? Through this
+            category, with various search filters, you will be able to browse
+            and choose perfect home for you according to your desire and
+            interest at an acceptable price. The prices for rent vary above{" "}
+            <span className={classes.PriceTag}>150,000 RWF</span>.
+          </CategoryCard>
         </div>
       </section>
       {featuredHouses.length > 0 && (
