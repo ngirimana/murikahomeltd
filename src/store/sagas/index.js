@@ -14,9 +14,12 @@ export function* watchSignup() {
 }
 export function* watchLogin() {
   yield takeEvery(actionTypes.AUTH_CHECK_TIMEOUT, checkAuthTimeoutSaga);
-  yield takeEvery(actionTypes.AUTH_INITIATE_LOGOUT, logoutSaga);
   yield takeEvery(actionTypes.LOGIN_USER, loginUserSaga);
   yield takeEvery(actionTypes.AUTH_CHECK_STATE, authCheckStateSaga);
+}
+
+export function*watchLogout(){
+  yield takeEvery(actionTypes.AUTH_INITIATE_LOGOUT, logoutSaga);
 }
 
 export function* watchAddHouse() {

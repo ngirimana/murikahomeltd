@@ -25,7 +25,7 @@ export function* loginUserSaga(action) {
 		const { exp } = decode(response.data.token);
 		yield localStorage.setItem('expirationDate', exp);
 		yield localStorage.setItem('token', response.data.token);
-		yield put(actions.loginSuccess(response.data.token, response.data.data.id));
+		yield put(actions.loginSuccess(response.data.token));
 		yield put(actions.checkAuthTimeout(exp - (new Date().getTime() / 1000)));
 	} catch (error) {
 
@@ -44,8 +44,7 @@ export function* authCheckStateSaga(action) {
 			yield put(actions.logout());
 		}
 		else {
-			const userId = yield localStorage.getItem('userId');
-			yield put(actions.loginSuccess(token, userId));
+			yield put(actions.loginSuccess(token));
 			yield put(actions.checkAuthTimeout(expirationDate - (new Date().getTime() / 1000)));
 		}
 	}

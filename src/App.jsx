@@ -22,6 +22,12 @@ class App extends Component {
   componentDidMount() {
     this.props.onTryAutoSignup();
   }
+  componentWillMount(){
+    const token = localStorage.getItem("token");
+    if (token) {
+      console.log(token)
+      this.props.onLogin(token)
+  }}
 
   render() {
     let routes = (
@@ -71,6 +77,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onTryAutoSignup: () => dispatch(actions.authCheckState()),
+    onLogin:(token)=>dispatch(actions.loginSuccess(token))
   };
 };
 

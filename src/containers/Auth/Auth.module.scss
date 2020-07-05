@@ -51,7 +51,7 @@
   // cursor: pointer;
   // color: var(--color-white);
 	// background-color: var(--color-primary);
-	width: inherit;
+	width: 100%;
 	margin: 0 auto;
 	color: var(--color-white);
 	background-color:var(--color-primary);
@@ -141,7 +141,7 @@
   }
   .SectionAccount {
     width: 100%;
-    //  background-image: linear-gradient(to right bottom, $color-primary, $color-primary-dark);
+    // background-image: linear-gradient(to right bottom, $color-primary, $color-primary-dark);
 	}
 	.PrimaryHeading {
 		font-size: 1.6rem
@@ -171,4 +171,10 @@
   Link {
 	 margin-top: 5rem;
 	}
+}
+@media (max-width: 324px) {
+  .Row {
+    width: 95%;
+    margin: 0 auto;
+  }
 }

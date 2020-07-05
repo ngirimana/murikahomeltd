@@ -5,11 +5,11 @@ export const loginStart=()=>{
 		type:actionTypes.LOGIN_START
 	}
 }
-export const loginSuccess=(token,userId)=>{
+export const loginSuccess=(token)=>{
 	return{
 		type:actionTypes.LOGIN_SUCCESS,
 		token:token,
-		userId:userId
+		
 	}
 }
 export const loginFail=(error)=>{
