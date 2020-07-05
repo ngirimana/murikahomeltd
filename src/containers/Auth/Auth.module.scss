@@ -1,143 +1,174 @@
-@import '../../sass/grid.scss';
-@import '../../sass/variables.scss';
+@import "../../sass/grid.scss";
+@import "../../sass/variables.scss";
 
 .Auth {
-	width: 100%;
-	margin: 5rem auto;
-	text-align: center;
-	padding: 1.5rem;
-	box-sizing: border-box;
-
+  width: 100%;
+  margin: 5rem auto;
+  text-align: center;
+  padding: 1.5rem;
+  box-sizing: border-box;
 }
-.LinkText{
-	font-size: 1.6rem;
-	color:$color-grey-light-2;
+.LinkText {
+  font-size: 1.6rem;
+  color: $color-grey-light-2;
 }
-.Link{
-	color: $color-primary-dark;
-	display: inline-block;
-  padding: 0.5rem 1rem;
-	border: none;
-	text-align: left;
-	font-size: 1.6rem;
-	left: 0;
-	border-radius: .3rem;
-	margin-left: -9rem;
-	text-decoration: none;
-}
-
-.Row{
-	width: 70%;
+.Link {
+	width: inherit;
 	margin: 0 auto;
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-column-gap: 2rem;
+  color: $color-primary-dark;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: none;
+  text-align: left;
+  font-size: 1.6rem;
+  left: 0;
+  border-radius: 0.3rem;
+  // margin-left: -9rem;
+  text-decoration: none;
 }
-.Gbgcolor{
-	width: 70%;
+
+.Row {
+  width: 70%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 2rem;
+  padding: 0rem 1rem;
+}
+.Gbgcolor {
+  // display: inline-block;
+  // text-align: center;
+  // text-decoration: none;
+  // font-size: 1.6rem;
+  // width: inherit;
+  // margin: 0 auto;
+  // height: 3rem;
+  // padding: 0 1rem;
+  // border: none;
+  // border-radius: 0.3rem;
+  // box-sizing: border-box;
+  // outline: none;
+  // cursor: pointer;
+  // color: var(--color-white);
+	// background-color: var(--color-primary);
+	width: inherit;
 	margin: 0 auto;
 	color: var(--color-white);
 	background-color:var(--color-primary);
 	display: inline-block;
-  padding: 0.5rem 2rem;
+  padding: 0.5rem 1rem;
   border: none;
 	font-size: 1.6rem;
 	border-radius: .3rem;
 	cursor: pointer;
 	line-height: 100%;
-	height: 2rem;
 	outline: none;
 	text-decoration: none;
+
 }
 .Gbgcolor:hover,
-	.Gbgcolor:active,
-	.Gbgcolor.active {
-			background-color: var(--color-primary-dark);
-			color: white;
-	}
-.PrimaryHeading{
-	font-size: 2rem;
-	text-transform: uppercase;
-	font-weight: 700;
-	display: inline-block;
-	background-image: linear-gradient(to right, var(--color-primary), var(--color-primary-dark));
-	-webkit-background-clip: text;
-	background-clip: text;
-	color: transparent;
-	letter-spacing: .2rem;
-	transition: all .2s;
+.Gbgcolor:active,
+.Gbgcolor.active {
+  background-color: var(--color-primary-dark);
+  color: white;
 }
-.PrimaryHeading:hover{
-	transform: skewY(2deg) skewX(7deg) scale(1.1);
-        text-shadow: .5rem 1rem 2rem rgba(var(--color-secondary), .2);
+.PrimaryHeading {
+  font-size: 2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: inline-block;
+  background-image: linear-gradient(
+    to right,
+    var(--color-primary),
+    var(--color-primary-dark)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  letter-spacing: 0.2rem;
+	transition: all 0.2s;
+	margin-top: 1rem;
+	margin-bottom: 2rem;
 }
-.Error{
-	color: red;
+.PrimaryHeading:hover {
+  transform: skewY(2deg) skewX(7deg) scale(1.1);
+  text-shadow: 0.5rem 1rem 2rem rgba(var(--color-secondary), 0.2);
+}
+.Error {
+  color: red;
 }
 
 .SectionAccount {
-	width: 90%;
-	margin: 0 auto;
-	padding: 1rem 0;
+  width: 90%;
+  margin: 0 auto;
+  padding: 1rem 0;
 }
 
 .Account {
-	background-image: linear-gradient(105deg, 
-																	rgba($color-tertiary, .9) 0%,
-																	rgba($color-tertiary, .9) 50%,
-																	transparent 50%) ,
-													url(../../assets/images/house-1.jpeg);
-	background-size: 100%;
-	background-position: center;
-	border-radius: 3px;
-	height: 60rem;
+  background-image: linear-gradient(
+      105deg,
+      rgba($color-tertiary, 0.9) 0%,
+      rgba($color-tertiary, 0.9) 50%,
+      transparent 50%
+    ),
+    url(../../assets/images/house-1.jpeg);
+  background-size: 100%;
+  background-position: center;
+  border-radius: 3px;
+  height: 60rem;
 }
-.LoginHeight{
-	background-image: linear-gradient(105deg, 
-	rgba($color-tertiary, .9) 0%,
-	rgba($color-tertiary, .9) 50%,
-	transparent 50%) ,
-url(../../assets/images/house-1.jpeg);
-background-size: 100%;
-background-position: center;
-border-radius: 3px;
-	height: 37rem;
+.LoginHeight {
+  background-image: linear-gradient(
+      105deg,
+      rgba($color-tertiary, 0.9) 0%,
+      rgba($color-tertiary, 0.9) 50%,
+      transparent 50%
+    ),
+    url(../../assets/images/house-1.jpeg);
+  background-size: 100%;
+  background-position: center;
+  border-radius: 3px;
+  height: 37rem;
 }
-	.AccountForm {
-			width: 50%;
-			padding: 0rem;
-	}
+.AccountForm {
+  width: 50%;
+  padding: 0rem;
+}
 
-	@media (max-width: 600px) {
-		.Auth {
-				width: 100%;
-		}
-		.SectionAccount {
-			width: 100%;
-			//  background-image: linear-gradient(to right bottom, $color-primary, $color-primary-dark);
+@media (max-width: 600px) {
+  .Auth {
+    width: 100%;
+  }
+  .SectionAccount {
+    width: 100%;
+    //  background-image: linear-gradient(to right bottom, $color-primary, $color-primary-dark);
 	}
-		.Account, .LoginHeight
-		{
-			background-image: linear-gradient(105deg, 
-																			rgba($color-tertiary, .9) 0%,
-																			rgba($color-tertiary, .9) 100%,
-																			transparent 0%) ,
-															url(../../assets/images/house-1.jpeg);
-			background-size: 100%;
-			background-position: center;
-			border-radius: 3px;
-		}
-			.AccountForm {
-					width: 100%;
-					padding: 0;
-			}
-			.Gbgcolor{
-				width: 80%;
-			}
-			.Row{
-				width: 90%;
-			}
-			.Link{
-				margin-left: -6rem
-			}
-	} 
+	.PrimaryHeading {
+		font-size: 1.6rem
+		;}
+  .Account,
+  .LoginHeight {
+    background-image: linear-gradient(
+        105deg,
+        rgba($color-tertiary, 0.9) 0%,
+        rgba($color-tertiary, 0.9) 100%,
+        transparent 0%
+      ),
+      url(../../assets/images/house-1.jpeg);
+    background-size: 100%;
+    background-position: center;
+    border-radius: 3px;
+  }
+  .AccountForm {
+    width: 100%;
+    padding: 0;
+  }
+  
+  .Row {
+    width: 90%;
+    margin: 0 auto;
+  }
+  Link {
+	 margin-top: 5rem;
+	}
+}

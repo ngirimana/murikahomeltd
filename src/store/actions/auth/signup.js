@@ -8,8 +8,6 @@ export const signupStart = () => {
 export const signupSuccess = (token, userId) => {
 	return {
 		type: actionTypes.SIGNUP_SUCCESS,
-		token: token,
-		userId: userId
 	};
 };
 export const signupFail = (error) => {

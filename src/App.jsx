@@ -3,7 +3,7 @@ import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import asyncComponent from "./hoc/AsyncComponent/AsyncComponent";
 import Layout from "./hoc/Layout/Layout";
-import Logout from "./containers/Auth/Logout/Logout";
+import Logout from "./containers/Auth/Logout/Logout.jsx";
 import HomePage from "./containers/HomePage/HomePage";
 import classes from "./App.module.scss";
 
@@ -40,7 +40,7 @@ class App extends Component {
       </Switch>
     );
 
-    if (this.props.isAuthenticated || this.props.isAuth) {
+    if (this.props.isAuthenticated) {
       routes = (
         <Switch>
           <Route path="/login" component={asyncLogin} />
@@ -64,7 +64,6 @@ class App extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    isAuth: state.signup.token !== null,
     isAuthenticated: state.login.token !== null,
   };
 };
