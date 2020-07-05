@@ -6,7 +6,6 @@ import decode from 'jwt-decode';
 export function* logoutSaga(action) {
 	yield call([ localStorage, 'removeItem' ], 'token')
 	yield call([ localStorage, 'removeItem' ], 'expirationDate')
-	yield call([ localStorage, 'removeItem' ], 'userId')
 	yield put(actions.logoutSucceed())
 }
 export function* checkAuthTimeoutSaga(action) {
@@ -26,11 +25,10 @@ export function* loginUserSaga(action) {
 		const { exp } = decode(response.data.token);
 		yield localStorage.setItem('expirationDate', exp);
 		yield localStorage.setItem('token', response.data.token);
-		yield localStorage.setItem('userId', response.data.data.id);
 		yield put(actions.loginSuccess(response.data.token, response.data.data.id));
 		yield put(actions.checkAuthTimeout(exp - (new Date().getTime() / 1000)));
 	} catch (error) {
-		console.log(error)
+
 		yield put(actions.loginFail(error.message));
 	}
 }
