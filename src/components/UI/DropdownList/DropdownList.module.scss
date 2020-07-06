@@ -1,0 +1,12 @@
+.DropdownListContainer {
+  display: inline-block;
+  margin: 0 0.4rem;
+}
+.DropdownList {
+  height: 3.2rem;
+  border: 0.15rem solid var(--color-primary);
+  border-radius: 0.4rem;
+  min-width: 15rem;
+  width: 100%;
+  margin: 1rem;
+}
