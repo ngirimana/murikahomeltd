@@ -32,10 +32,6 @@ const HousePage = (props) => {
   const [pageHouses, setPageHouses] = useState([]);
   const [activePage, setActivePage] = useState(0);
 
-  const [districts, setDistricts] = useState(Provinces()[1]);
-  const [sectors, setSectors] = useState(Sectors([]));
-  const [cells, setCells] = useState([]);
-
   const [filterState, dispatchFilterState] = useReducer(filterReducer, {
     district: "",
     sector: "",
@@ -53,13 +49,6 @@ const HousePage = (props) => {
     },
     [dispatchFilterState]
   );
-
-  //   Load demographic information on page start up.
-
-  useEffect(() => {
-    setSectors(Sectors(districts[0]));
-    // setCells(Cells(districts[0], sectors[0]));
-  }, [districts, sectors]);
 
   useEffect(() => {
     getHouses();
@@ -93,7 +82,7 @@ const HousePage = (props) => {
     ));
   }
 
-  const { province, district, sector, cell, sortBy } = filterState;
+  const { province, district, sector } = filterState;
   let demograpy;
   try {
     demograpy = {
