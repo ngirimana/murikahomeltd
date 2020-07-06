@@ -1,28 +1,71 @@
 .HousePage {
-  background-color: #333;
-  background-color: #ebe7e7;
-  padding: 10rem;
+  padding: 7rem 1rem;
+  width: 90%;
+  margin: 0 auto;
 }
 
 .HouseContainer {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
+
+.CardContainer {
+  max-width: 27rem;
+}
+
 .PageHeading {
   text-transform: uppercase;
   letter-spacing: 0.2rem;
   color: #5c5c5c;
   font-size: 1.8rem;
-  font-weight: 400;
+  font-weight: 300;
   text-shadow: 0 0 0.1rem #333;
   padding: 0.3rem 2rem;
-  border-bottom: 0.2rem solid #ddd;
+  border-bottom: 0.2rem solid whitesmoke;
   display: inline-block;
   text-align: center;
   margin-left: 1rem;
 }
 
-.FilterSection {
-  width: 100%;
-  display: flex;
+
+
+@media screen and(max-width:622px) {
+  .HouseContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .HousePage {
+    width: 100%;
+    text-align: center;
+
+  }
+
+  .HouseContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .CardContainer {
+    display: flex;
+    max-width: 100%;
+  }
+
+}
+
+h3 {
+  font-size: 1.8rem;
+  color: #5c5c5c;
+  font-weight: 400;
+}
+
+.PriceRange {
+  border: .15rem solid #333;
+  height: 3.2rem;
+  display: inline-block;
+
 }

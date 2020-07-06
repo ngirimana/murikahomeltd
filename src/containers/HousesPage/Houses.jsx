@@ -1,5 +1,4 @@
-import React, { useEffect, useState, useReducer, useCallback } from "react";
-
+import React, { useEffect, useState } from "react";
 import classes from "./Houses.module.scss";
 import HouseCard from "../../components/UI/Card/Card";
 import { getFeaturedHouses } from "../../store/actions/landing-page/featured-houses";
@@ -7,70 +6,32 @@ import { connect } from "react-redux";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import { paginate, getQueryParams } from "../../helpers/helper-functions";
 import Pagination from "../../components/UI/Pagination/Pagination";
-import DropdownList from "../../components/UI/DropdownList/DropdownList";
-import { Provinces, Districts, Sectors, Cells } from "rwanda";
+import DemographicFiler from "../../components/UI/DemographicFiler/DemographicFiler";
+import TextInput from "../../components/UI/TextInput/TextInput";
 
 const DEFAULT_PAGE_SIZE = 9;
-const FILTER_VALUE_CHANGED = "FILTER_VALUE_CHANGED";
-
-// Filter houses reducer
-
-const filterReducer = (state = {}, { type, input }) => {
-  switch (type) {
-    case FILTER_VALUE_CHANGED:
-      return {
-        ...state,
-        [input.name]: input.value,
-      };
-    default:
-      return state;
-  }
-};
 
 const HousePage = (props) => {
   const { getHouses, houses } = props;
   const [pageHouses, setPageHouses] = useState([]);
   const [activePage, setActivePage] = useState(0);
-
-  const [districts, setDistricts] = useState(Provinces()[1]);
-  const [sectors, setSectors] = useState(Sectors([]));
-  const [cells, setCells] = useState([]);
-
-  const [filterState, dispatchFilterState] = useReducer(filterReducer, {
-    district: "",
-    sector: "",
-    cell: "",
-    sortBy: "",
-    province: "",
-  });
-
-  const handleFilterChange = useCallback(
-    ({ target }) => {
-      dispatchFilterState({
-        type: FILTER_VALUE_CHANGED,
-        input: { name: target.name, value: target.value },
-      });
-    },
-    [dispatchFilterState]
-  );
-
-  //   Load demographic information on page start up.
-
-  useEffect(() => {
-    setSectors(Sectors(districts[0]));
-    // setCells(Cells(districts[0], sectors[0]));
-  }, [districts, sectors]);
+  const [maxPrice, setMaxPrice] = useState("");
+  const [allHouses, setAllHouses] = useState([]);
 
   useEffect(() => {
     getHouses();
   }, [getHouses]);
 
   useEffect(() => {
-    setPageHouses(paginate(DEFAULT_PAGE_SIZE, 0, houses));
+    setPageHouses(paginate(DEFAULT_PAGE_SIZE, 0, allHouses));
+  }, [allHouses]);
+
+  useEffect(() => {
+    setAllHouses(houses);
   }, [houses]);
 
   const changePageHandler = (page) => {
-    const elements = paginate(DEFAULT_PAGE_SIZE, page, houses);
+    const elements = paginate(DEFAULT_PAGE_SIZE, page, allHouses);
     setPageHouses(elements);
     setActivePage(page);
   };
@@ -85,45 +46,81 @@ const HousePage = (props) => {
     return "Houses";
   };
 
+  const handlePriceFilter = (price) => {
+    if (maxPrice > 0) {
+      setAllHouses(houses.filter((house) => house.monthlyRent <= maxPrice));
+    }
+  };
+  const handlePriceChange = ({ target }) => {
+    setMaxPrice(target.value);
+    filterHouses();
+  };
+
+  const filterHouses = (
+    province = "",
+    district = "",
+    sector = "",
+    cell = ""
+  ) => {
+    if (province && district && sector && cell) {
+      let filteredHouses = houses;
+
+      if (district.toLowerCase() !== "all") {
+        filteredHouses = filteredHouses.filter(
+          (house) => house.district === district
+        );
+      }
+
+      if (sector.toLowerCase() !== "all") {
+        filteredHouses = filteredHouses.filter(
+          (house) => house.sector === sector
+        );
+      }
+
+      if (cell.toLowerCase() !== "all") {
+        filteredHouses = filteredHouses.filter((house) => house.cell === cell);
+      }
+      if (province === "All" && district === "All" && sector === "All") {
+        filteredHouses = houses;
+      }
+
+      if (maxPrice && maxPrice > 0) {
+        console.log(maxPrice);
+        setAllHouses(
+          filteredHouses.filter((house) => house.monthlyRent <= maxPrice)
+        );
+      } else {
+        setAllHouses(filteredHouses);
+      }
+    }
+  };
+
   let content = <Spinner />;
 
   if (!props.loading) {
     content = pageHouses.map((house) => (
-      <HouseCard {...house} id={house._id} key={house._id} />
+      <div className={classes.CardContainer} key={house._id}>
+        <HouseCard {...house} id={house._id} />
+      </div>
     ));
   }
-
-  const { province, district, sector, cell, sortBy } = filterState;
-  let demograpy;
-  try {
-    demograpy = {
-      provinces: Provinces(),
-      districts: Districts(province) || [],
-      sectors: Sectors(province, district) || [],
-      cells: Cells(province, district, sector) || [],
-    };
-  } catch (err) {}
 
   return (
     <div className={classes.HousePage}>
       <h3 className={classes.PageHeading}>{getPageTitle()}</h3>
-      <div className={classes.FilterSection}>
-        <DropdownList
-          options={demograpy.provinces}
-          value={province}
-          onChange={handleFilterChange}
-          name="province"
+      <DemographicFiler onFilter={filterHouses}>
+        <TextInput
+          value={maxPrice}
+          onChange={handlePriceChange}
+          type="number"
+          name="maxPrice"
+          label="Maximun rental price"
+          onFilter={handlePriceFilter}
+          title="In case you want to filter houses by price regardless of the location press enter"
         />
-
-        <DropdownList
-          options={demograpy.districts}
-          value={district}
-          onChange={handleFilterChange}
-          name="district"
-        />
-      </div>
+      </DemographicFiler>
       <div className={classes.HouseContainer}>{content}</div>
-      {Math.ceil(houses.length / DEFAULT_PAGE_SIZE) > 1 && (
+      {Math.ceil(allHouses.length / DEFAULT_PAGE_SIZE) > 1 && (
         <Pagination
           onPageClick={changePageHandler}
           totalPages={Math.ceil(houses.length / DEFAULT_PAGE_SIZE)}

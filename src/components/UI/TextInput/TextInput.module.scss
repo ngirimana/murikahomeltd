@@ -1,0 +1,31 @@
+.TextInput {
+    height: 3.2rem;
+    width: 15rem;
+    border: .1rem solid var(--color-primary);
+    text-align: center;
+    font-size: 1.2rem;
+    color: #bbb;
+    padding: 0 1rem;
+    border-radius: .4rem;
+    outline: none;
+}
+
+.TextInputContainer {
+    padding: .1rem;
+    display: inline-block;
+    height: 100%;
+    position: relative;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.Label {
+    color: #333;
+    width: 100%;
+    font-size: 1.2rem;
+    text-transform: capitalize;
+    padding: .2rem;
+    background-color: whitesmoke;
+    border-top-right-radius: .4rem;
+}
