@@ -24,7 +24,6 @@ export const getFeaturedHouses = () => async (dispatch) => {
   try {
     dispatch(initiateGetFeaturedHouses());
     const { data } = await axios.get("/houses");
-    console.log(data);
     dispatch(getFeaturedHousesDone(data));
   } catch (error) {
     dispatch(getFeaturedHousesFailed(error));

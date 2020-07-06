@@ -14,9 +14,8 @@ import loginReducer from "./store/reducers/auth/signin.js";
 import houseReducer from "./store/reducers/house/house.js";
 import landingPage from "./store/reducers/landing-page/landing";
 import searchReducer from "./store/reducers/search/search-reducer";
-import logout from './store/reducers/auth/logout';
 
-import { watchSignup, watchLogin, watchAddHouse,watchLogout } from "./store/sagas/index.js";
+import { watchSignup, watchLogin, watchAddHouse } from "./store/sagas/index.js";
 
 const composeEnhancers =
   process.env.NODE_ENV === "development"
@@ -26,7 +25,6 @@ const composeEnhancers =
 const rootReducer = combineReducers({
   signup: signupReducer,
   login: loginReducer,
-  logout:logout,
   house: houseReducer,
   featuredHouses: landingPage,
   searchHouses: searchReducer,
@@ -39,14 +37,8 @@ const store = createStore(
 );
 
 sagaMiddleware.run(watchSignup);
- sagaMiddleware.run(watchLogout);
 sagaMiddleware.run(watchLogin);
 sagaMiddleware.run(watchAddHouse);
-
-
-
-
-
 
 ReactDOM.render(
   <Provider store={store}>
