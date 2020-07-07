@@ -6,7 +6,7 @@ import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import createSagaMiddleware from "redux-saga";
-import "./index.scss";
+import "./index.module.scss";
 import App from "./App.jsx";
 import * as serviceWorker from "./serviceWorker";
 import signupReducer from "./store/reducers/auth/signup.js";

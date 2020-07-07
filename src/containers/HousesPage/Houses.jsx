@@ -1,4 +1,5 @@
-import React, { useEffect, useState } from "react";
+
+import React, { useEffect, useState, useReducer, useCallback } from "react";
 import classes from "./Houses.module.scss";
 import HouseCard from "../../components/UI/Card/Card";
 import {
