@@ -1,9 +1,9 @@
 .slide-container {
   width: 50vw;
-	margin: auto;
-	height: 500vh;
-  margin-top: 1rem;
+  margin: auto;
   margin-left: 1rem;
+  border-radius: 3px;
+  box-sizing: border-box;
 }
 
 h3 {
@@ -45,4 +45,11 @@ h3 {
   align-items: center;
   margin: 0;
   background: #adceed;
+}
+@media (max-width: 600px) {
+  .slide-container {
+    width: 100vw;
+    margin-left: 0;
+  }
+
 }
