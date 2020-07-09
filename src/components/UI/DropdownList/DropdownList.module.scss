@@ -1,12 +1,46 @@
 .DropdownListContainer {
-  display: inline-block;
-  margin: 0 0.4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
 }
+
 .DropdownList {
-  height: 3.2rem;
-  border: 0.15rem solid var(--color-primary);
+  border: 0.1rem solid var(--color-primary);
   border-radius: 0.4rem;
-  min-width: 15rem;
   width: 100%;
-  margin: 1rem;
+  height: 2.4rem;
+  width: 10rem;
+  color: #aaa;
+  background-color: white;
+}
+
+.DropdownList option {
+  background-color: whitesmoke;
+  padding: 1rem;
+  height: 3rem;
+}
+
+@media screen and (max-width:420px) {
+  .DropdownList {
+    font-size: 1rem;
+    height: 2.4rem;
+  }
+}
+
+@media screen and (min-width: 700px) {
+  .DropdownList {
+    height: 3.2rem;
+    min-width: 15rem;
+  }
+}
+
+.Label {
+  color: #333;
+  width: 100%;
+  font-size: 1.2rem;
+  text-transform: capitalize;
+  padding: .2rem;
+  background-color: whitesmoke;
+  border-top-right-radius: .4rem;
 }
