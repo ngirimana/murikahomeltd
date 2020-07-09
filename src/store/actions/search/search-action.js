@@ -11,20 +11,35 @@ const initiateSeachHouses = () => ({
 
 const searchHousesComplete = (data) => ({
   type: SEARCH_HOUSES,
-  payload: { data },
+  payload: {
+    data
+  },
 });
 
 const searchHousesFailed = (error) => ({
   type: SEARCH_HOUSES_FAILED,
-  payload: { error },
+  payload: {
+    error
+  },
 });
 
 export const searchHouses = (keyword) => async (dispatch) => {
   try {
     dispatch(initiateSeachHouses());
-    const { data } = await axios.get(`/houses/search-result/${keyword}`);
+    const {
+      data
+    } = await axios.get(`/houses/search-result/${keyword}`);
     dispatch(searchHousesComplete(data));
   } catch (error) {
     dispatch(searchHousesFailed(error));
   }
 };
+
+
+export const filterHouses = () => dispatch => {
+  try {
+
+  } catch (error) {
+
+  }
+}
