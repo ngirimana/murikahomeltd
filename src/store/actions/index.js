@@ -4,7 +4,8 @@ export {
 	signupStart,
 	signupSuccess,
 
-} from './auth/signup';
+}
+from './auth/signup';
 export {
 	login,
 	loginFail,
@@ -16,15 +17,18 @@ export {
 	logoutSucceed,
 	checkAuthTimeout,
 	authCheckState,
-} from './auth/signin'
+}
+from './auth/signin'
 
 export {
 	addHouse,
 	addHouseStart,
 	addHouseSuccess,
 	addHouseFail
-} from './house/house'
+}
+from './house/house'
 
 export {
 	getFeaturedHouses
-} from './landing-page/featured-houses'
+}
+from './houses/houses'

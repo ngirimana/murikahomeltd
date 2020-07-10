@@ -69,3 +69,26 @@ h3 {
   display: inline-block;
 
 }
+
+.NotFoundMessage {
+  font-size: 1.8rem;
+  color: #aaa;
+  padding: 2rem;
+  text-align: center;
+}
+
+.TextLink {
+  color: var(--color-primary-dark);
+  margin: 0 1rem;
+  display: inline-block;
+  border: .1rem solid #ddd;
+  padding: .5rem 1rem;
+  border-radius: 10rem;
+  text-decoration: none;
+}
+
+.TextLink:hover {
+  color: var(--color-primary);
+  background-color: rgba(236, 236, 236, 0.212);
+
+}

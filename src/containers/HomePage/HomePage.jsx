@@ -9,11 +9,9 @@ import Spinner from "../../components/UI/Spinner/Spinner";
 import LinkButton from "../../components/UI/LinkButton/LinkButton";
 import Pagination from "../../components/UI/Pagination/Pagination";
 import { paginate, defaultPageSize } from "../../helpers/helper-functions.js";
-
 import ProminentIcon from "../../assets/images/prominent.svg";
 import MediumIcon from "../../assets/images/medium.svg";
 import CheapIcon from "../../assets/images/cheap.svg";
-
 import CategoryCard from "../../components/UI/CategoryCard/CategoryCard";
 
 const HomePage = (props) => {
@@ -49,7 +47,7 @@ const HomePage = (props) => {
 
   const submitSearchHandler = () => {
     if (searchString.length) {
-      props.history.push(`/houses/search-result/${searchString}`);
+      props.history.push(`/houses/?location=${searchString}`);
     }
     setSearchString("");
   };
@@ -198,9 +196,9 @@ const HomePage = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  featuredHouses: state.featuredHouses.houses,
-  loading: state.featuredHouses.loading,
-  error: state.featuredHouses.error,
+  featuredHouses: state.houses.houses,
+  loading: state.houses.loading,
+  error: state.houses.error,
 });
 
 const mapDispatchToProps = (dispatch) => ({

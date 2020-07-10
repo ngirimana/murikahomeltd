@@ -1,34 +1,47 @@
 import React, { useEffect, useState } from "react";
 import classes from "./Houses.module.scss";
 import HouseCard from "../../components/UI/Card/Card";
-import { getFeaturedHouses } from "../../store/actions/landing-page/featured-houses";
+import {
+  getFeaturedHouses,
+  searchHouses,
+} from "../../store/actions/houses/houses";
 import { connect } from "react-redux";
 import Spinner from "../../components/UI/Spinner/Spinner";
 import { paginate, getQueryParams } from "../../helpers/helper-functions";
 import Pagination from "../../components/UI/Pagination/Pagination";
 import DemographicFiler from "../../components/UI/DemographicFiler/DemographicFiler";
 import TextInput from "../../components/UI/TextInput/TextInput";
+import { Link } from "react-router-dom";
 
 const DEFAULT_PAGE_SIZE = 9;
 
 const HousePage = (props) => {
-  const { getHouses, houses } = props;
+  const { getHouses, houses, searchHouseBylocation, location, error } = props;
+  const { search } = location;
   const [pageHouses, setPageHouses] = useState([]);
   const [activePage, setActivePage] = useState(0);
   const [maxPrice, setMaxPrice] = useState("");
   const [allHouses, setAllHouses] = useState([]);
 
   useEffect(() => {
-    getHouses();
-  }, [getHouses]);
+    if (search.includes("location")) {
+      searchHouseBylocation(getQueryParams(search).location);
+    } else {
+      getHouses();
+    }
+  }, [getHouses, search, searchHouseBylocation]);
 
   useEffect(() => {
-    setPageHouses(paginate(DEFAULT_PAGE_SIZE, 0, allHouses));
-  }, [allHouses]);
+    if (!error) {
+      setPageHouses(paginate(DEFAULT_PAGE_SIZE, 0, allHouses));
+    }
+  }, [allHouses, error]);
 
   useEffect(() => {
-    setAllHouses(houses);
-  }, [houses]);
+    if (!error) {
+      setAllHouses(houses);
+    }
+  }, [houses, error]);
 
   const changePageHandler = (page) => {
     const elements = paginate(DEFAULT_PAGE_SIZE, page, allHouses);
@@ -119,7 +132,18 @@ const HousePage = (props) => {
           title="In case you want to filter houses by price regardless of the location press enter"
         />
       </DemographicFiler>
-      <div className={classes.HouseContainer}>{content}</div>
+      <div className={classes.HouseContainer}>
+        {pageHouses && <>{content}</>}
+        {!pageHouses.length && search.includes("location") && (
+          <p className={classes.NotFoundMessage}>
+            No houses were found! in {getQueryParams(search).location} <br />
+            <br />
+            <Link to="/houses" className={classes.TextLink}>
+              Try in other locations
+            </Link>
+          </p>
+        )}
+      </div>
       {Math.ceil(allHouses.length / DEFAULT_PAGE_SIZE) > 1 && (
         <Pagination
           onPageClick={changePageHandler}
@@ -132,13 +156,14 @@ const HousePage = (props) => {
 };
 
 const mapStateToProps = (state) => ({
-  houses: state.featuredHouses.houses,
-  loading: state.featuredHouses.loading,
-  error: state.featuredHouses.error,
+  houses: state.houses.houses,
+  loading: state.houses.loading,
+  error: state.houses.error,
 });
 
 const mapDisptachToProps = (dispatch) => ({
   getHouses: () => dispatch(getFeaturedHouses()),
+  searchHouseBylocation: (searchQuery) => dispatch(searchHouses(searchQuery)),
 });
 
 export default connect(mapStateToProps, mapDisptachToProps)(HousePage);

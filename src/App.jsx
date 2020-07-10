@@ -31,11 +31,6 @@ class App extends Component {
         <Route path="/auth" component={asyncSignup} />
         <Route path="/houses/" exact component={HousePage} />
         <Route path="/houses/:id" exact component={HomePage} />
-        <Route
-          path="/houses/search-result/:searchQuery"
-          exact
-          component={HomePage}
-        />
         <Route path="/" exact component={HomePage} />
         <Redirect to="/" />
       </Switch>
