@@ -13,6 +13,7 @@ import ProminentIcon from "../../assets/images/prominent.svg";
 import MediumIcon from "../../assets/images/medium.svg";
 import CheapIcon from "../../assets/images/cheap.svg";
 import CategoryCard from "../../components/UI/CategoryCard/CategoryCard";
+import { search } from "react-back-to-top-button";
 
 const HomePage = (props) => {
   const [houses, setHouses] = useState([]);
@@ -137,8 +138,8 @@ const HomePage = (props) => {
 
         <div className={classes.CategoryContainer}>
           <CategoryCard
-            title="Cheap Houses"
-            link="/houses/?category=cheap"
+            title="Economy Houses"
+            link="/houses/?category=economy"
             icon={CheapIcon}
           >
             Easily find your next home at an affordable price through this

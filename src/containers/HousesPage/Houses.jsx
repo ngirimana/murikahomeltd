@@ -15,6 +15,12 @@ import { Link } from "react-router-dom";
 
 const DEFAULT_PAGE_SIZE = 9;
 
+// house categories price
+
+const ECONOMIC_PRICE = 50000;
+const MEDIUM_PRICE = 150000;
+const PROMINENT_PRICE = 150001;
+
 const HousePage = (props) => {
   const { getHouses, houses, searchHouseBylocation, location, error } = props;
   const { search } = location;
@@ -39,9 +45,31 @@ const HousePage = (props) => {
 
   useEffect(() => {
     if (!error) {
-      setAllHouses(houses);
+      if (search.includes("category")) {
+        let housesInCategory = houses;
+        const { category } = getQueryParams(search);
+        if (category === "economy") {
+          housesInCategory = houses.filter(
+            (house) => house.monthlyRent <= ECONOMIC_PRICE
+          );
+        } else if (category === "medium") {
+          housesInCategory = houses.filter(
+            (house) =>
+              house.monthlyRent <= MEDIUM_PRICE &&
+              house.monthlyRent > ECONOMIC_PRICE
+          );
+        } else if (category === "prominent") {
+          housesInCategory = houses.filter(
+            (house) => house.monthlyRent > PROMINENT_PRICE
+          );
+        }
+
+        setAllHouses(housesInCategory);
+      } else {
+        setAllHouses(houses);
+      }
     }
-  }, [houses, error]);
+  }, [houses, error, search]);
 
   const changePageHandler = (page) => {
     const elements = paginate(DEFAULT_PAGE_SIZE, page, allHouses);
@@ -78,25 +106,27 @@ const HousePage = (props) => {
     if (province && district && sector && cell) {
       let filteredHouses = houses;
 
+      // FILTER BY DISTRICT
+
       if (district.toLowerCase() !== "all") {
         filteredHouses = filteredHouses.filter(
           (house) => house.district === district
         );
       }
 
+      // FILTER BY SECTOR
       if (sector.toLowerCase() !== "all") {
         filteredHouses = filteredHouses.filter(
           (house) => house.sector === sector
         );
       }
 
+      // FILTER BY CELL
       if (cell.toLowerCase() !== "all") {
         filteredHouses = filteredHouses.filter((house) => house.cell === cell);
       }
-      if (province === "All" && district === "All" && sector === "All") {
-        filteredHouses = houses;
-      }
 
+      // FILTER BY PRICE
       if (maxPrice && maxPrice > 0) {
         console.log(maxPrice);
         setAllHouses(
@@ -105,6 +135,8 @@ const HousePage = (props) => {
       } else {
         setAllHouses(filteredHouses);
       }
+
+      setAllHouses(filteredHouses);
     }
   };
 
@@ -134,14 +166,41 @@ const HousePage = (props) => {
       </DemographicFiler>
       <div className={classes.HouseContainer}>
         {pageHouses && <>{content}</>}
-        {!pageHouses.length && search.includes("location") && (
-          <p className={classes.NotFoundMessage}>
-            No houses were found! in {getQueryParams(search).location} <br />
-            <br />
-            <Link to="/houses" className={classes.TextLink}>
-              Try in other locations
-            </Link>
-          </p>
+        {!props.loading && (
+          <>
+            {!pageHouses.length && search.includes("location") && (
+              <p className={classes.NotFoundMessage}>
+                No houses were found! in {getQueryParams(search).location}{" "}
+                <br />
+                <br />
+                <Link to="/houses" className={classes.TextLink}>
+                  Try in other locations
+                </Link>
+              </p>
+            )}
+
+            {!pageHouses.length && search.includes("category") && (
+              <p className={classes.NotFoundMessage}>
+                No houses were found! in {getQueryParams(search).category}{" "}
+                category <br />
+                <br />
+                <Link to="/houses" className={classes.TextLink}>
+                  Try in other categories
+                </Link>
+              </p>
+            )}
+
+            {!pageHouses.length && search.length === 0 && (
+              <p className={classes.NotFoundMessage}>
+                No houses were found! in the selected location
+                <br />
+                <br />
+                <Link className={classes.TextLink} onClick={getHouses}>
+                  Try in other locations
+                </Link>
+              </p>
+            )}
+          </>
         )}
       </div>
       {Math.ceil(allHouses.length / DEFAULT_PAGE_SIZE) > 1 && (
