@@ -12,9 +12,20 @@ import * as serviceWorker from "./serviceWorker";
 import signupReducer from "./store/reducers/auth/signup.js";
 import loginReducer from "./store/reducers/auth/signin.js";
 import houseReducer from "./store/reducers/house/house.js";
+<<<<<<< HEAD
 import housesReducer from "./store/reducers/houses/houses";
+=======
+import landingPage from "./store/reducers/landing-page/landing";
+import searchReducer from "./store/reducers/search/search-reducer";
+import singleHouse from "./store/reducers/SingleHouse/SingleHouse";
+>>>>>>> cbbe43f... - replace hardcoded data with data from DataBase
 
-import { watchSignup, watchLogin, watchAddHouse } from "./store/sagas/index.js";
+import {
+  watchSignup,
+  watchLogin,
+  watchAddHouse,
+  watchSingleHouse,
+} from "./store/sagas/index.js";
 
 const composeEnhancers =
   process.env.NODE_ENV === "development"
@@ -25,7 +36,13 @@ const rootReducer = combineReducers({
   signup: signupReducer,
   login: loginReducer,
   house: houseReducer,
+<<<<<<< HEAD
   houses: housesReducer,
+=======
+  featuredHouses: landingPage,
+  searchHouses: searchReducer,
+  singleHouse: singleHouse,
+>>>>>>> cbbe43f... - replace hardcoded data with data from DataBase
 });
 
 const sagaMiddleware = createSagaMiddleware();
@@ -37,6 +54,7 @@ const store = createStore(
 sagaMiddleware.run(watchSignup);
 sagaMiddleware.run(watchLogin);
 sagaMiddleware.run(watchAddHouse);
+sagaMiddleware.run(watchSingleHouse);
 
 ReactDOM.render(
   <Provider store={store}>

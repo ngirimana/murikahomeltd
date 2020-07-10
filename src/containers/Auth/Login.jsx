@@ -43,7 +43,7 @@ class Signin extends Component {
       },
     },
   };
-  componentDidMount() {
+  UNSAFE_componentDidMount() {
     if (this.props.authRedirectPath !== "/") {
       this.props.onSetAuthRedirectPath();
     }

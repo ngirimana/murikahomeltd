@@ -11,14 +11,13 @@ const navigationItems = (props) => (
     {!props.isAuthenticated ? (
       <Auxilary>
         <NavigationItem link="/auth">Account</NavigationItem>
-				<NavigationItem link="/sinlgeHouse">SingleHouse</NavigationItem>
+        <NavigationItem link="/houses/id">SingleHouse</NavigationItem>
       </Auxilary>
     ) : (
       <Auxilary>
         {" "}
         <NavigationItem link="/add-house">AddHouse</NavigationItem>
         <NavigationItem link="/logout">Logout</NavigationItem>
-        
       </Auxilary>
     )}
   </ul>
