@@ -8,6 +8,7 @@ import {
   authCheckStateSaga,
 } from "./auth/login.js";
 import { addHouseSaga } from "./house/house.js";
+import { fetchSingleHouseSaga } from "./SingleHouse/SingleHouse";
 
 export function* watchSignup() {
   yield takeEvery(actionTypes.SIGNUP_USER, signupUserSaga);
@@ -21,4 +22,7 @@ export function* watchLogin() {
 
 export function* watchAddHouse() {
   yield takeEvery(actionTypes.ADD_HOUSE, addHouseSaga);
+}
+export function* watchSingleHouse() {
+  yield takeEvery(actionTypes.FETCH_SINGLE_HOUSE, fetchSingleHouseSaga);
 }

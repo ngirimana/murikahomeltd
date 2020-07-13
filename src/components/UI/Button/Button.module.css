@@ -1,7 +1,7 @@
 .Button {
   color: var(--color-white);
   background-color: var(--color-primary);
-  display: inline-block;
+  display: block;
   padding: 0.5rem 2rem;
   border: none;
   font-size: 1.6rem;

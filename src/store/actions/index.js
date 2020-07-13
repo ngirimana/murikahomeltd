@@ -1,34 +1,28 @@
+export { signup, signupFail, signupStart, signupSuccess } from "./auth/signup";
 export {
-	signup,
-	signupFail,
-	signupStart,
-	signupSuccess,
-
-}
-from './auth/signup';
-export {
-	login,
-	loginFail,
-	loginStart,
-	loginSuccess,
-
-	setAuthRedirectPath,
-	logout,
-	logoutSucceed,
-	checkAuthTimeout,
-	authCheckState,
-}
-from './auth/signin'
+  login,
+  loginFail,
+  loginStart,
+  loginSuccess,
+  setAuthRedirectPath,
+  logout,
+  logoutSucceed,
+  checkAuthTimeout,
+  authCheckState,
+} from "./auth/signin";
 
 export {
-	addHouse,
-	addHouseStart,
-	addHouseSuccess,
-	addHouseFail
-}
-from './house/house'
+  addHouse,
+  addHouseStart,
+  addHouseSuccess,
+  addHouseFail,
+} from "./house/house";
+
+export { getFeaturedHouses } from "./houses/houses";
 
 export {
-	getFeaturedHouses
-}
-from './houses/houses'
+  fetchSingleHouse,
+  fetchSingleHouseStart,
+  fetchSingleHouseSuccess,
+  fetchSingleHouseFail,
+} from "./SingleHouse/SingleHOuse";

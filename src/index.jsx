@@ -6,15 +6,21 @@ import { createStore, applyMiddleware, compose, combineReducers } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension";
 import thunk from "redux-thunk";
 import createSagaMiddleware from "redux-saga";
-import "./index.scss";
+import "./index.module.scss";
 import App from "./App.jsx";
 import * as serviceWorker from "./serviceWorker";
 import signupReducer from "./store/reducers/auth/signup.js";
 import loginReducer from "./store/reducers/auth/signin.js";
 import houseReducer from "./store/reducers/house/house.js";
 import housesReducer from "./store/reducers/houses/houses";
-
-import { watchSignup, watchLogin, watchAddHouse } from "./store/sagas/index.js";
+import searchReducer from "./store/reducers/search/search-reducer";
+import singleHouse from "./store/reducers/SingleHouse/SingleHouse";
+import {
+  watchSignup,
+  watchLogin,
+  watchAddHouse,
+  watchSingleHouse,
+} from "./store/sagas/index.js";
 
 const composeEnhancers =
   process.env.NODE_ENV === "development"
@@ -26,6 +32,8 @@ const rootReducer = combineReducers({
   login: loginReducer,
   house: houseReducer,
   houses: housesReducer,
+  searchHouses: searchReducer,
+  singleHouse: singleHouse,
 });
 
 const sagaMiddleware = createSagaMiddleware();
@@ -37,6 +45,7 @@ const store = createStore(
 sagaMiddleware.run(watchSignup);
 sagaMiddleware.run(watchLogin);
 sagaMiddleware.run(watchAddHouse);
+sagaMiddleware.run(watchSingleHouse);
 
 ReactDOM.render(
   <Provider store={store}>
