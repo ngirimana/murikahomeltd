@@ -31,16 +31,12 @@ class App extends Component {
         <Route path="/auth" component={asyncSignup} />
         <Route path="/sinlgeHouse" component={SingleHouse} />
         <Route path="/houses/" exact component={HousePage} />
-<<<<<<< HEAD
-        <Route path="/houses/:id" exact component={HomePage} />
-=======
         <Route path="/houses/:id" exact component={SingleHouse} />
         <Route
           path="/houses/search-result/:searchQuery"
           exact
           component={HomePage}
         />
->>>>>>> cbbe43f... - replace hardcoded data with data from DataBase
         <Route path="/" exact component={HomePage} />
         <Redirect to="/" />
       </Switch>

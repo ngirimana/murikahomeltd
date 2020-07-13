@@ -13,8 +13,6 @@ import ProminentIcon from "../../assets/images/prominent.svg";
 import MediumIcon from "../../assets/images/medium.svg";
 import CheapIcon from "../../assets/images/cheap.svg";
 import CategoryCard from "../../components/UI/CategoryCard/CategoryCard";
-import { search } from "react-back-to-top-button";
-
 const HomePage = (props) => {
   const [houses, setHouses] = useState([]);
   const [activePage, setActivePage] = useState(0);

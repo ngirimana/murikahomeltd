@@ -1,53 +1,53 @@
 @import "../../../../sass/_mixins.scss";
 .NavigationItem {
-	margin: 1rem 0;
-	box-sizing: border-box;
-	display: block;
-	width: 100%;
+  margin: 1rem 0;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
 }
 
 .NavigationItem a {
-	color: white;
-	text-decoration: none;
-	width: 100%;
-	box-sizing: border-box;
-	display: block;
-	background-color: var(--color-primary);
-	border-radius: 3px;
+  color: white;
+  text-decoration: none;
+  width: 100%;
+  box-sizing: border-box;
+  display: block;
+  background-color: var(--color-primary);
+  border-radius: 3px;
 }
 
 .NavigationItem a:hover,
 .NavigationItem a:active,
 .NavigationItem a.active {
-	background-color: var(--color-primary-dark);
+  background-color: var(--color-primary-dark);
 }
 
-@media (min-width: 50rem) {
-	.NavigationItem {
-			margin: 0;
-			display: flex;
-			flex-wrap: wrap;
-			height: 100%;
-			width:100%;
-			background-color: var(--color-primary);
-			align-items: center;
-	}
-	
-	.NavigationItem a {
-			color: white;
-			text-align: center;
-			height: 75%;
-			width: 95%;
-			margin: 0rem auto;
-			padding: 1rem 1rem;
-			font-size: 1.6rem;
-			border-bottom: .4rem solid transparent;
-	}
-	
-	.NavigationItem a:hover,
-	.NavigationItem a:active,
-	.NavigationItem a.active {
-			background-color: var(--color-primary-dark);
-			color: white;
-	}
+@media (min-width: 60rem) {
+  .NavigationItem {
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 100%;
+    background-color: var(--color-primary);
+    align-items: center;
+  }
+
+  .NavigationItem a {
+    color: white;
+    text-align: center;
+    height: 80%;
+    margin: 0 auto;
+    padding: 10px 10px;
+    margin-left: 10px;
+    font-size: 16px;
+    border-bottom: 0.4rem solid transparent;
+  }
+
+  .NavigationItem a:hover,
+  .NavigationItem a:active,
+  .NavigationItem a.active {
+    background-color: var(--color-primary-dark);
+    color: white;
+  }
 }

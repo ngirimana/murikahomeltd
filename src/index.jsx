@@ -12,14 +12,9 @@ import * as serviceWorker from "./serviceWorker";
 import signupReducer from "./store/reducers/auth/signup.js";
 import loginReducer from "./store/reducers/auth/signin.js";
 import houseReducer from "./store/reducers/house/house.js";
-<<<<<<< HEAD
 import housesReducer from "./store/reducers/houses/houses";
-=======
-import landingPage from "./store/reducers/landing-page/landing";
 import searchReducer from "./store/reducers/search/search-reducer";
 import singleHouse from "./store/reducers/SingleHouse/SingleHouse";
->>>>>>> cbbe43f... - replace hardcoded data with data from DataBase
-
 import {
   watchSignup,
   watchLogin,
@@ -36,13 +31,9 @@ const rootReducer = combineReducers({
   signup: signupReducer,
   login: loginReducer,
   house: houseReducer,
-<<<<<<< HEAD
   houses: housesReducer,
-=======
-  featuredHouses: landingPage,
   searchHouses: searchReducer,
   singleHouse: singleHouse,
->>>>>>> cbbe43f... - replace hardcoded data with data from DataBase
 });
 
 const sagaMiddleware = createSagaMiddleware();

@@ -1,3 +1,4 @@
+@import "../HomePage/HomePage.module.scss";
 .header {
   margin-top: 7rem;
   margin-bottom: 1rem;
@@ -5,15 +6,13 @@
   grid-template-columns: 1fr 1fr;
   grid-gap: 1rem;
 }
-<<<<<<< HEAD
-=======
+
 .SlideShow {
   top: 112px;
   left: 122px;
   border-radius: 5px;
   opacity: 1;
 }
->>>>>>> 6817c3a... - add house description
 
 .HouseTitle {
   text-align: left;
@@ -120,7 +119,6 @@
   }
   .HouseDetails {
     margin-right: 0;
-    
   }
   .HouseBtn {
     display: grid;
