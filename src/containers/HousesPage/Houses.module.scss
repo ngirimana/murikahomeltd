@@ -28,8 +28,6 @@
   margin-left: 1rem;
 }
 
-
-
 @media screen and(max-width:622px) {
   .HouseContainer {
     display: grid;
@@ -41,7 +39,6 @@
   .HousePage {
     width: 100%;
     text-align: center;
-
   }
 
   .HouseContainer {
@@ -54,7 +51,6 @@
     display: flex;
     max-width: 100%;
   }
-
 }
 
 h3 {
@@ -64,8 +60,30 @@ h3 {
 }
 
 .PriceRange {
-  border: .15rem solid #333;
+  border: 0.15rem solid #333;
   height: 3.2rem;
   display: inline-block;
+}
 
+.NotFoundMessage {
+  font-size: 1.8rem;
+  color: #aaa;
+  padding: 2rem;
+  text-align: center;
+  font-weight: lighter;
+}
+
+.TextLink {
+  color: var(--color-primary-dark);
+  margin: 0 1rem;
+  display: inline-block;
+  border: 0.1rem solid #ddd;
+  padding: 0.5rem 1rem;
+  border-radius: 10rem;
+  text-decoration: none;
+}
+
+.TextLink:hover {
+  color: var(--color-primary);
+  background-color: rgba(236, 236, 236, 0.212);
 }

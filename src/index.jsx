@@ -12,8 +12,7 @@ import * as serviceWorker from "./serviceWorker";
 import signupReducer from "./store/reducers/auth/signup.js";
 import loginReducer from "./store/reducers/auth/signin.js";
 import houseReducer from "./store/reducers/house/house.js";
-import landingPage from "./store/reducers/landing-page/landing";
-import searchReducer from "./store/reducers/search/search-reducer";
+import housesReducer from "./store/reducers/houses/houses";
 
 import { watchSignup, watchLogin, watchAddHouse } from "./store/sagas/index.js";
 
@@ -26,8 +25,7 @@ const rootReducer = combineReducers({
   signup: signupReducer,
   login: loginReducer,
   house: houseReducer,
-  featuredHouses: landingPage,
-  searchHouses: searchReducer,
+  houses: housesReducer,
 });
 
 const sagaMiddleware = createSagaMiddleware();
