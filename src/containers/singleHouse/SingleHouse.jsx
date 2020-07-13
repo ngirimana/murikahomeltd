@@ -137,15 +137,16 @@ class SingleHouse extends Component {
               </span>
             </div>
           </div>
+          <div className={classes.otherDesc}>
+            <h3 className={classes.HouseTitle}>House Description</h3>
+            <p className={classes.OtherDetails}>{aboutPrperty}</p>
+          </div>
+          <div className={classes.otherDesc}>
+            <h3 className={classes.HouseTitle}>OtherDescription</h3>
+            <p className={classes.OtherDetails}>{leaseDatails}</p>
+          </div>
         </div>
-        <div className={classes.otherDesc}>
-          <h3 className={classes.HouseTitle}>House Description</h3>
-          <p className={classes.OtherDetails}>{aboutPrperty}</p>
-        </div>
-        <div className={classes.otherDesc}>
-          <h3 className={classes.HouseTitle}>OtherDescription</h3>
-          <p className={classes.OtherDetails}>{leaseDatails}</p>
-        </div>
+
         <div className={classes.FullInfos}>
           <Button btnType="Success">Get Full Information</Button>
         </div>
@@ -158,6 +159,7 @@ const mapStateToProps = (state) => {
     houseData: state.singleHouse.houseData,
     loading: state.singleHouse.loading,
     error: state.singleHouse.error,
+   
   };
 };
 const mapDispatchToProps = (dispatch) => {
@@ -168,4 +170,3 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleHouse);
-

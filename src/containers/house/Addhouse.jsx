@@ -85,7 +85,7 @@ class AddHouse extends Component {
       size: {
         elementType: "input",
         elementConfig: {
-          type: "Number",
+          type: "text",
           placeholder: "Size in Length * Width",
         },
         value: "",
