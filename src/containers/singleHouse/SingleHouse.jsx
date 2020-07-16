@@ -7,6 +7,7 @@ import Button from "../../components/UI/Button/Button";
 import * as actions from "../../store/actions/index";
 import Card from "../../components/UI/Card/Card.jsx";
 import Pagination from "../../components/UI/Pagination/Pagination";
+import Invoice from "../../components/PayMent/Payment";
 import { paginate, defaultPageSize } from "../../helpers/helper-functions.js";
 
 let filteredHouses = [];
@@ -14,12 +15,30 @@ class SingleHouse extends Component {
   state = {
     pageHouses: [],
     activePage: 0,
+    modalStatus: true,
+    showComponent: false,
   };
-  filteredHouses = [];
+
   componentWillMount() {
     this.props.onFetchSingleHouse(this.props.match.params.id);
     this.props.onGetHouses();
   }
+  onButtonClick = () => {
+    this.setState({
+      showComponent: true,
+    });
+  };
+
+  showModel = () => {
+    this.setState({ modalStatus: true });
+  };
+  hideModal = () => {
+    this.setState({
+      showComponent: false,
+    });
+    console.log(this.state.showComponent);
+  };
+
   capitalize = (string) => {
     return string.charAt(0).toUpperCase() + string.slice(1);
   };
@@ -67,17 +86,14 @@ class SingleHouse extends Component {
       if (
         district.toLowerCase() === "kicukiro" ||
         district.toLowerCase() === "gasabo" ||
-        district.toLowerCase() === "nyarugenge"
+        (district.toLowerCase() === "nyarugenge" && this.props.isAuthenticated)
       ) {
         location = `Kigali, ${this.capitalize(district)},${this.capitalize(
           sector
         )}, ${this.capitalize(cell)}`;
       } else {
-        location = `${this.capitalize(district)},${this.capitalize(
-          sector
-        )}, ${this.capitalize(cell)}`;
+        location = `${this.capitalize(district)},${this.capitalize(sector)}`;
       }
-      console.log(this.props.houses);
       filteredHouses = this.props.houses.filter(
         (house) =>
           house.district.toLowerCase() === district.toLowerCase() &&
@@ -104,7 +120,6 @@ class SingleHouse extends Component {
           />
         )
       );
-      console.log("==========", filteredHouses);
     }
     const changePageHandler = (page) => {
       const elements = paginate(defaultPageSize, page, this.filteredHouses);
@@ -189,12 +204,16 @@ class SingleHouse extends Component {
               <p className={classes.OtherDetails}>{leaseDatails}</p>
             </div>
           </div>
-
           <div className={classes.FullInfos}>
-            <Button btnType="Success">Get Full Information</Button>
+            <Button btnType="Success" clicked={this.onButtonClick}>
+              Get Full Information
+            </Button>
+            {this.state.showComponent ? (
+              <Invoice open={this.state.modalStatus} close={this.hideModal} />
+            ) : null}
           </div>
           <div>
-            <h3>Similar houses</h3>
+            <h3 className={classes.similarHouseTitle}>Similar houses</h3>
             <div className={classes.HouseGrid}>{paginatedHouses}</div>
             <div className={classes.Pagination}>
               {filteredHouses.length / defaultPageSize > 1 ? (
@@ -221,6 +240,7 @@ const mapStateToProps = (state) => {
     loading: state.singleHouse.loading,
     error: state.singleHouse.error,
     houses: state.houses.houses,
+    isAuthenticated: state.login.token !== null,
   };
 };
 const mapDispatchToProps = (dispatch) => {
