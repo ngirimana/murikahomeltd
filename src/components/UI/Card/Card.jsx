@@ -5,7 +5,11 @@ import { Link } from "react-router-dom";
 
 const Card = (props) => {
   return (
-    <Link className={classes.Card} to={`/houses/${props.id}`}>
+    <Link
+      className={classes.Card}
+      to={`/houses/${props.id}`}
+      onClick={props.clicked}
+    >
       <div className={classes.FrontSide}>
         <div className={classes.CardImage}>
           <img src={props.houseImages[0].url || CardImage} alt="" />

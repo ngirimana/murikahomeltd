@@ -23,6 +23,9 @@ class SingleHouse extends Component {
     this.props.onFetchSingleHouse(this.props.match.params.id);
     this.props.onGetHouses();
   }
+  scrollTop = () => {
+    window.scrollTo(0, 0);
+  };
   onButtonClick = () => {
     this.setState({
       showComponent: true,
@@ -117,6 +120,7 @@ class SingleHouse extends Component {
             id={_id}
             location={`${district},${sector},${cell}`}
             cell={cell}
+            clicked={this.scrollTop}
           />
         )
       );
