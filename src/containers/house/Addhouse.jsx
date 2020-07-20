@@ -7,6 +7,7 @@ import Spinner from "../../components/UI/Spinner/Spinner";
 import * as actions from "../../store/actions/index";
 import { checkValidity } from "../../shared/utility";
 import WithErrorHandler from "../../hoc/WithErrorHandler/WithErrorHandler";
+import Invoice from "../../components/PayMent/Payment";
 import classes from "./house.module.scss";
 
 class AddHouse extends Component {
@@ -225,7 +226,18 @@ class AddHouse extends Component {
     furnished: false,
     houseVideo: "",
     houseImages: [],
+    showComponent: false,
     error: "",
+  };
+  onButtonClick = () => {
+    this.setState({
+      showComponent: true,
+    });
+  };
+  hideModal = () => {
+    this.setState({
+      showComponent: false,
+    });
   };
   fileSelectorHandler = (event) => {
     let images = [];
@@ -427,8 +439,15 @@ class AddHouse extends Component {
                 {" "}
                 <Button btnType="Success">
                   {" "}
-                  SUBMIT {this.props.loading ? <Spinner /> : ""}{" "}
+                  SUBMIT  {this.props.loading ? <Spinner /> : ""}{" "}
                 </Button>
+                {/* {this.state.showComponent ? (
+                  <Invoice
+                    open={this.onButtonClick}
+                    close={this.hideModal}
+                    clicked={this.houseAddHandler}
+                  />
+                ) : null} */}
               </div>
             </div>
           </div>

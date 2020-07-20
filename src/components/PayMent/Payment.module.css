@@ -60,3 +60,6 @@
   background: #dcd5d5 0% 0% no-repeat padding-box;
   border-radius: 3px;
 }
+.RealWidth {
+  width: 100%;
+}

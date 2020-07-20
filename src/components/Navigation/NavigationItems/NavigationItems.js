@@ -11,8 +11,6 @@ const navigationItems = (props) => (
     {!props.isAuthenticated ? (
       <Auxilary>
         <NavigationItem link="/auth">Account</NavigationItem>
-        <NavigationItem link="/houses/id">SingleHouse</NavigationItem>
-       
       </Auxilary>
     ) : (
       <Auxilary>

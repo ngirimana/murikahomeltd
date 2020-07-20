@@ -2,21 +2,82 @@ import React, { Component } from "react";
 import Button from "../UI/Button/Button";
 import Modal from "../../components/UI/Modal/Modal";
 import classes from "./Payment.module.css";
+import Input from "../UI/Input/Input";
+import { checkValidity } from "../../shared/utility";
+import Information from "../Information/Information";
 
 class Invoice extends Component {
   state = {
+    controls: {
+      district: {
+        elementType: "input",
+        elementConfig: {
+          type: "text",
+          placeholder: "Enter your phone number",
+        },
+        value: "",
+        validation: {
+          required: true,
+          minLength: 3,
+        },
+        valid: false,
+        touched: false,
+      },
+    },
     modalStatus: true,
+    fee: null,
   };
-  showModel = () => {
-    this.setState({ modalStatus: true });
+
+  onButtonClick = () => {
+    this.setState({
+      showComponent: true,
+    });
   };
   hideModal = () => {
-    this.setState({ modalStatus: false });
+    this.setState({
+      showComponent: false,
+    });
   };
-  inputhandler = (event) => {
-    return event.target.value;
+  inputChangedHandler = (event, controlName) => {
+    const updatedControls = {
+      ...this.state.controls,
+      [controlName]: {
+        ...this.state.controls[controlName],
+        value: event.target.value,
+        valid: checkValidity(
+          event.target.value,
+          this.state.controls[controlName].validation
+        ),
+        touched: true,
+      },
+    };
+    this.setState({ controls: updatedControls });
   };
+
   render() {
+    const formElementsArray = [];
+    for (let key in this.state.controls) {
+      formElementsArray.push({
+        id: key,
+        config: this.state.controls[key],
+      });
+    }
+
+    let form = formElementsArray.map((formElement) => (
+      <Input
+        key={formElement.id}
+        elementType={formElement.config.elementType}
+        elementConfig={formElement.config.elementConfig}
+        value={formElement.config.value}
+        required={formElement.config.validation.required}
+        invalid={!formElement.config.valid}
+        files={formElement.config.files}
+        shouldValidate={formElement.config.validation}
+        touched={formElement.config.touched}
+        changed={(event) => this.inputChangedHandler(event, formElement.id)}
+        style={{ width: "100%" }}
+      />
+    ));
     return (
       <Modal show={this.props.open} modalClosed={this.props.close}>
         <div className={classes.PaymentModal}>
@@ -39,18 +100,14 @@ class Invoice extends Component {
             </div>
             <div className={classes.Hr}></div>
           </div>
-          <div className={classes.InputBox}>
-            <input
-              type="text"
-              value=""
-              onChange={(event) => this.inputhandler(event)}
-              placeholder="Enter Your Phone Number"
-              required
-              className={classes.phoneNumber}
-            />
-          </div>
-
-          <Button btnType="Success">Pay</Button>
+          <form>
+            <div className={classes.InputBox}>{form}</div>
+            <Button btnType="Success" onclick={this.onButtonClick}>
+              Pay
+            </Button>
+            {console.log(this.state.showComponent)}
+            {this.state.showComponent ? Information : null}
+          </form>
         </div>
       </Modal>
     );

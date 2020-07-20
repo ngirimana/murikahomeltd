@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
+import Geocode from "react-geocode";
 import SlideShoww from "../../components/UI/SlideShoww/SlideShoww";
 import classes from "./singleHouse.module.scss";
 import PhotoIcon from "../../assets/images/iconfinder_33_111001.svg";
@@ -9,14 +11,21 @@ import Card from "../../components/UI/Card/Card.jsx";
 import Pagination from "../../components/UI/Pagination/Pagination";
 import Invoice from "../../components/PayMent/Payment";
 import { paginate, defaultPageSize } from "../../helpers/helper-functions.js";
+import Information from "../../components/Information/Information.js";
 
 let filteredHouses = [];
+Geocode.setApiKey("AIzaSyB-Z5mYPMUGltQZQZUFl3GmYi3-v2KZaVg");
+Geocode.setLanguage("en");
+Geocode.setRegion("rw");
+Geocode.enableDebug();
 class SingleHouse extends Component {
   state = {
     pageHouses: [],
     activePage: 0,
     modalStatus: true,
     showComponent: false,
+    latitude: null,
+    longitude: null,
   };
 
   componentWillMount() {
@@ -26,20 +35,16 @@ class SingleHouse extends Component {
   scrollTop = () => {
     window.scrollTo(0, 0);
   };
+
   onButtonClick = () => {
     this.setState({
       showComponent: true,
     });
   };
-
-  showModel = () => {
-    this.setState({ modalStatus: true });
-  };
   hideModal = () => {
     this.setState({
       showComponent: false,
     });
-    console.log(this.state.showComponent);
   };
 
   capitalize = (string) => {
@@ -63,6 +68,8 @@ class SingleHouse extends Component {
     let postedDate = null;
     let aboutPrperty = null;
     let leaseDatails = null;
+    let phone = null;
+    let email = null;
 
     let paginatedHouses = null;
     if (!this.props.loading && this.props.houseData) {
@@ -85,18 +92,21 @@ class SingleHouse extends Component {
       postedDate = houseData.postedDate;
       aboutPrperty = houseData.aboutProperty;
       leaseDatails = houseData.leaseDatails;
+      phone = houseData.ownerId.phoneNumber;
+      email = houseData.ownerId.email;
 
       if (
         district.toLowerCase() === "kicukiro" ||
         district.toLowerCase() === "gasabo" ||
         (district.toLowerCase() === "nyarugenge" && this.props.isAuthenticated)
       ) {
-        location = `Kigali, ${this.capitalize(district)},${this.capitalize(
-          sector
-        )}, ${this.capitalize(cell)}`;
+        location = ` ${this.capitalize(sector)},${this.capitalize(
+          district
+        )},Kigali`;
       } else {
-        location = `${this.capitalize(district)},${this.capitalize(sector)}`;
+        location = `${this.capitalize(sector)},${this.capitalize(district)}`;
       }
+      console.log(houseData, phone, email, location);
       filteredHouses = this.props.houses.filter(
         (house) =>
           house.district.toLowerCase() === district.toLowerCase() &&
@@ -213,7 +223,13 @@ class SingleHouse extends Component {
               Get Full Information
             </Button>
             {this.state.showComponent ? (
-              <Invoice open={this.state.modalStatus} close={this.hideModal} />
+              <Information
+                open={this.onButtonClick}
+                close={this.hideModal}
+                location={location}
+                phone={phone}
+                email={email}
+              />
             ) : null}
           </div>
           <div>
@@ -234,6 +250,7 @@ class SingleHouse extends Component {
             </div>
           </div>
         </div>
+        <div></div>
       </div>
     );
   }
