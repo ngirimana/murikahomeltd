@@ -2,7 +2,8 @@
   position: fixed;
   z-index: 500;
   width: 70%;
-  /* border: 1px solid #ccc; */
+  margin: 0 auto;
+  border: 1px solid #ccc;
   box-shadow: 1px 1px 1px #ccc;
   padding: 1.6rem;
   left: 15%;
@@ -15,9 +16,8 @@
 
 @media (min-width: 600px) {
   .Modal {
-    width: 70%;
-    margin: 0 auto;
-    height: 100vh;
-    /* left: calc(50% - 250px); */
+    width: 50vw;
+    height: 70%;
+    left: calc(50% - 350px);
   }
 }

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 import Geocode from "react-geocode";
 import SlideShoww from "../../components/UI/SlideShoww/SlideShoww";
 import classes from "./singleHouse.module.scss";
@@ -14,18 +13,12 @@ import { paginate, defaultPageSize } from "../../helpers/helper-functions.js";
 import Information from "../../components/Information/Information.js";
 
 let filteredHouses = [];
-Geocode.setApiKey("AIzaSyB-Z5mYPMUGltQZQZUFl3GmYi3-v2KZaVg");
-Geocode.setLanguage("en");
-Geocode.setRegion("rw");
-Geocode.enableDebug();
 class SingleHouse extends Component {
   state = {
     pageHouses: [],
     activePage: 0,
     modalStatus: true,
     showComponent: false,
-    latitude: null,
-    longitude: null,
   };
 
   componentWillMount() {
