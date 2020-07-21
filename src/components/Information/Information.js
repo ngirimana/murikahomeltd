@@ -3,8 +3,11 @@ import { Map, Marker, GoogleApiWrapper } from "google-maps-react";
 import Geocode from "react-geocode";
 import Modal from "../UI/Modal/Modal";
 import classes from "./Information.module.scss";
+import dotenv from "dotenv";
 
-Geocode.setApiKey("AIzaSyB-Z5mYPMUGltQZQZUFl3GmYi3-v2KZaVg");
+dotenv.config();
+
+Geocode.setApiKey(process.env.API_KEY);
 Geocode.setLanguage("en");
 Geocode.setRegion("rw");
 Geocode.enableDebug();
@@ -69,5 +72,5 @@ class Information extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyB-Z5mYPMUGltQZQZUFl3GmYi3-v2KZaVg",
+  apiKey: process.env.API_KEY,
 })(Information);
