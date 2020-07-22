@@ -439,15 +439,8 @@ class AddHouse extends Component {
                 {" "}
                 <Button btnType="Success">
                   {" "}
-                  SUBMIT  {this.props.loading ? <Spinner /> : ""}{" "}
+                  SUBMIT {this.props.loading ? <Spinner /> : ""}{" "}
                 </Button>
-                {/* {this.state.showComponent ? (
-                  <Invoice
-                    open={this.onButtonClick}
-                    close={this.hideModal}
-                    clicked={this.houseAddHandler}
-                  />
-                ) : null} */}
               </div>
             </div>
           </div>

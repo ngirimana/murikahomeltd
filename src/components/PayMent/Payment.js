@@ -24,8 +24,6 @@ class Invoice extends Component {
         touched: false,
       },
     },
-    modalStatus: true,
-    fee: null,
   };
 
   onButtonClick = () => {
@@ -100,13 +98,24 @@ class Invoice extends Component {
             </div>
             <div className={classes.Hr}></div>
           </div>
+          <div className={classes.Amount}>
+            <h3>Amount :1000 Frw</h3>
+          </div>
           <form>
             <div className={classes.InputBox}>{form}</div>
-            <Button btnType="Success" onclick={this.onButtonClick}>
+            <Button btnType="Success" clicked={this.onButtonClick}>
               Pay
             </Button>
-            {console.log(this.state.showComponent)}
-            {this.state.showComponent ? Information : null}
+
+            {this.state.showComponent ? (
+              <Information
+                open={this.onButtonClick}
+                close={this.hideModal}
+                location={this.props.location}
+                phone={this.props.phone}
+                email={this.props.email}
+              />
+            ) : null}
           </form>
         </div>
       </Modal>

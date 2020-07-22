@@ -16,6 +16,10 @@ export {
   addHouseStart,
   addHouseSuccess,
   addHouseFail,
+  updateHouse,
+  updateHouseStart,
+  updateHouseSuccess,
+  updateHouseFaiil,
 } from "./house/house";
 
 export { getFeaturedHouses } from "./houses/houses";

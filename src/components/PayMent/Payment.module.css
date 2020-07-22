@@ -11,6 +11,9 @@
   z-index: 99999999999;
   margin-bottom: 2rem;
 }
+.PaymentModal {
+  margin-top: 10rem;
+}
 .InvoiceTile {
   text-align: center;
   font-size: 1.6rem;
@@ -26,6 +29,11 @@
   display: grid;
   grid-template-columns: 1fr 3fr 1fr;
   grid-gap: 0;
+}
+.Amount {
+  widows: 50%;
+  margin: 0 auto;
+  text-align: center;
 }
 .Pay {
   text-align: center;

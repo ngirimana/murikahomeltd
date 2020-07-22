@@ -7,7 +7,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-Geocode.setApiKey(process.env.API_KEY);
+Geocode.setApiKey("AIzaSyB-Z5mYPMUGltQZQZUFl3GmYi3-v2KZaVg");
 Geocode.setLanguage("en");
 Geocode.setRegion("rw");
 Geocode.enableDebug();
@@ -51,9 +51,9 @@ class Information extends Component {
               google={this.props.google}
               zoom={9}
               style={{
-                width: "95%",
+                width: "90%",
                 height: "70%",
-                "margin-top": "2rem",
+                "margin-top": "1rem",
               }}
               initialCenter={{ lat: -1.940278, lng: 29.873888 }}
             >
@@ -72,5 +72,5 @@ class Information extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: process.env.API_KEY,
+  apiKey: "AIzaSyB-Z5mYPMUGltQZQZUFl3GmYi3-v2KZaVg",
 })(Information);

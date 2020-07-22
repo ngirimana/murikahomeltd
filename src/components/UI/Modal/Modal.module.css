@@ -6,7 +6,7 @@
   border: 1px solid #ccc;
   box-shadow: 1px 1px 1px #ccc;
   padding: 1.6rem;
-  left: 15%;
+  left: 10%;
   top: 10%;
   border-radius: 3px;
   box-sizing: border-box;
@@ -17,7 +17,7 @@
 @media (min-width: 600px) {
   .Modal {
     width: 50vw;
-    height: 70%;
+    height: 80%;
     left: calc(50% - 350px);
   }
 }

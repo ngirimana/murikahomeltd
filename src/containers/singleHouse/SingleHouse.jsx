@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import Geocode from "react-geocode";
 import SlideShoww from "../../components/UI/SlideShoww/SlideShoww";
 import classes from "./singleHouse.module.scss";
 import PhotoIcon from "../../assets/images/iconfinder_33_111001.svg";
@@ -10,7 +9,6 @@ import Card from "../../components/UI/Card/Card.jsx";
 import Pagination from "../../components/UI/Pagination/Pagination";
 import Invoice from "../../components/PayMent/Payment";
 import { paginate, defaultPageSize } from "../../helpers/helper-functions.js";
-import Information from "../../components/Information/Information.js";
 
 let filteredHouses = [];
 class SingleHouse extends Component {
@@ -85,8 +83,9 @@ class SingleHouse extends Component {
       postedDate = houseData.postedDate;
       aboutPrperty = houseData.aboutProperty;
       leaseDatails = houseData.leaseDatails;
-      phone = houseData.ownerId.phoneNumber;
-      email = houseData.ownerId.email;
+      //phone = houseData.ownerId.phoneNumber;
+      // email = houseData.ownerId.email;
+      console.log(houseData);
 
       if (
         district.toLowerCase() === "kicukiro" ||
@@ -99,7 +98,7 @@ class SingleHouse extends Component {
       } else {
         location = `${this.capitalize(sector)},${this.capitalize(district)}`;
       }
-      console.log(houseData, phone, email, location);
+
       filteredHouses = this.props.houses.filter(
         (house) =>
           house.district.toLowerCase() === district.toLowerCase() &&
@@ -216,7 +215,7 @@ class SingleHouse extends Component {
               Get Full Information
             </Button>
             {this.state.showComponent ? (
-              <Information
+              <Invoice
                 open={this.onButtonClick}
                 close={this.hideModal}
                 location={location}
