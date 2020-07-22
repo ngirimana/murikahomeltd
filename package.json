@@ -2,10 +2,6 @@
   "name": "murika-home",
   "version": "0.1.0",
   "private": true,
-  "engines": {
-    "node": "12.x",
-    "npm": "6.x"
-  },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@emotion/core": "^10.0.28",
@@ -43,6 +39,10 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
+  },
+  "engines": {
+    "node": "12.x",
+    "npm": "6.x"
   },
   "eslintConfig": {
     "extends": "react-app"
