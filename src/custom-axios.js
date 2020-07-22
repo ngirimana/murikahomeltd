@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const token = localStorage.getItem("token");
-const baseURL = "http://murika.herokuapp.com/api/v1";
+const baseURL = "https://murika.herokuapp.com/api/v1";
 const instance = axios.create({
   baseURL: baseURL,
   headers: {
