@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "44d3c22bd0012689127a09eb02cc74fa",
+    "revision": "83a34b902958aa70bda0b7c55c2813cf",
     "url": "/murika-front-end/index.html"
   },
   {
@@ -20,7 +20,7 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/murika-front-end/static/css/5.e391d8c9.chunk.css"
   },
   {
-    "revision": "7f17112dd507899959f6",
+    "revision": "8769fe578d358200ee61",
     "url": "/murika-front-end/static/css/main.b3d08fbb.chunk.css"
   },
   {
@@ -44,8 +44,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/murika-front-end/static/js/5.ef43cc96.chunk.js"
   },
   {
-    "revision": "7f17112dd507899959f6",
-    "url": "/murika-front-end/static/js/main.b8778fbb.chunk.js"
+    "revision": "8769fe578d358200ee61",
+    "url": "/murika-front-end/static/js/main.d71a43df.chunk.js"
   },
   {
     "revision": "da92b1ab6740a31fa7c7",
