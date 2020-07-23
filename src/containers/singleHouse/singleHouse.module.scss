@@ -1,13 +1,16 @@
 @import "../HomePage/HomePage.module.scss";
 .header {
+  width: 90%;
+  margin: 0 auto;
   margin-top: 7rem;
   margin-bottom: 1rem;
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 1rem;
+  grid-gap: 2rem;
 }
 
 .SlideShow {
+  width: 50%;
   top: 112px;
   left: 122px;
   border-radius: 5px;
@@ -22,13 +25,20 @@
   letter-spacing: 0px;
   color: #30281e;
 }
+.similarHouseTitle {
+  text-align: center;
+  padding: 1rem;
+  height: 7vh;
+  font: Bold 1.6rem Arial;
+  letter-spacing: 0px;
+  color: #30281e;
+}
 .HouseDetails {
   top: 586px;
   left: 122px;
   border: 2px solid var(--unnamed-color-c69963);
   background: #dcd5d566 0% 0% no-repeat padding-box;
   opacity: 1;
-  margin-right: 1rem;
   height: 50vh;
   box-sizing: border-box;
 }
@@ -61,7 +71,7 @@
   grid-gap: 1rem;
 }
 .SlideBtn {
-  width: 50%;
+  width: 100%;
   margin: 0 auto;
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -94,7 +104,7 @@
   opacity: 1;
 }
 .otherDesc {
-  width: 90%;
+  width: 100%;
   margin: 0 auto;
   font-size: 1.6rem;
   margin-bottom: 1rem;

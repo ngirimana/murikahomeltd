@@ -1,4 +1,4 @@
-@import "../../../sass/variables.scss";
+@import "../../../sass/_variables";
 $grey-text-color: #838383;
 
 .CategoryCard {
@@ -9,7 +9,7 @@ $grey-text-color: #838383;
   background-color: grey;
   text-decoration: none;
   border-radius: 0.4rem;
-  margin: 1rem .1rem;
+  margin: 1rem 0.1rem;
 }
 
 .CategoryHeader {

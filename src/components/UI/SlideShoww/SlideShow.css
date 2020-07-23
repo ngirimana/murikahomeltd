@@ -1,7 +1,6 @@
 .slide-container {
-  width: 50vw;
+  width: 45vw;
   margin: auto;
-  margin-left: 1rem;
   border-radius: 3px;
   box-sizing: border-box;
 }
@@ -51,5 +50,4 @@ h3 {
     width: 100vw;
     margin-left: 0;
   }
-
 }
