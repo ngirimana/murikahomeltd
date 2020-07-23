@@ -2,7 +2,7 @@
   "name": "murika-home",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ngirimana.github.io/murika-front-end/",
+  "homepage": "https://ngirimana.github.io/murikahomeltd",
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.10.4",
     "@emotion/core": "^10.0.28",
