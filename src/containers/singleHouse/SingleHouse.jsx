@@ -83,9 +83,8 @@ class SingleHouse extends Component {
       postedDate = houseData.postedDate;
       aboutPrperty = houseData.aboutProperty;
       leaseDatails = houseData.leaseDatails;
-      //phone = houseData.ownerId.phoneNumber;
-      // email = houseData.ownerId.email;
-      console.log(houseData);
+      phone = houseData.ownerId.phoneNumber;
+      email = houseData.ownerId.email;
 
       if (
         district.toLowerCase() === "kicukiro" ||

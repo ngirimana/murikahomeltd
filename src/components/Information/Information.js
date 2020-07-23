@@ -53,7 +53,7 @@ class Information extends Component {
               style={{
                 width: "90%",
                 height: "70%",
-                "margin-top": "1rem",
+                marginTop: "1rem",
               }}
               initialCenter={{ lat: -1.940278, lng: 29.873888 }}
             >
