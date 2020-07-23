@@ -6,8 +6,7 @@ export function* addHouseSaga(action) {
   yield put(actions.addHouseStart());
   try {
     const response = yield axios.post("/house", action.houseData);
-    yield put(actions.addHouseSuccess());
-    console.log(response);
+    yield put(actions.addHouseSuccess(response.data.data));
   } catch (error) {
     yield put(actions.addHouseFail(error));
   }
