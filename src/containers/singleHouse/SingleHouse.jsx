@@ -61,6 +61,7 @@ class SingleHouse extends Component {
     let leaseDatails = null;
     let phone = null;
     let email = null;
+    let houseId = null;
 
     let paginatedHouses = null;
     if (!this.props.loading && this.props.houseData) {
@@ -73,6 +74,7 @@ class SingleHouse extends Component {
       monthlyRent = houseData.monthlyRent;
       priceStatus = this.capitalize(houseData.priceStatus);
       minimumRentperiod = houseData.minimumRentperiod;
+      houseId = houseData.id;
       numberOfRooms = houseData.rooms;
       bedRooms = houseData.bedRooms;
       bathRooms = houseData.bathRooms;
@@ -85,7 +87,11 @@ class SingleHouse extends Component {
       leaseDatails = houseData.leaseDatails;
       phone = houseData.ownerId.phoneNumber;
       email = houseData.ownerId.email;
-      console.log(houseData.ownerId.phoneNumber,'================', houseData.ownerId.email);
+      console.log(
+        houseData.ownerId.phoneNumber,
+        "================",
+        houseData.ownerId.email
+      );
       if (
         district.toLowerCase() === "kicukiro" ||
         district.toLowerCase() === "gasabo" ||
@@ -220,6 +226,7 @@ class SingleHouse extends Component {
                 location={location}
                 phone={phone}
                 email={email}
+                houseId={houseId}
               />
             ) : null}
           </div>

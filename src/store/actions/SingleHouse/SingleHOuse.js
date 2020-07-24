@@ -26,3 +26,28 @@ export const fetchSingleHouseFail = (error) => {
     error: error,
   };
 };
+//UPDATE HOUSE
+export const getHouseInfosStart = () => {
+  return {
+    type: actionTypes.GET_HOUSE_INFOS_START,
+  };
+};
+export const getHouseInfosFail = (error) => {
+  return {
+    type: actionTypes.GET_HOUSE_INFOS_FAIL,
+    error: error,
+  };
+};
+export const getHouseInfosSuccess = (houseData) => {
+  return {
+    type: actionTypes.GET_HOUSE_INFOS_SUCCESS,
+    houseData: houseData,
+  };
+};
+
+export const getHouseInfos = (houseData) => {
+  return {
+    type: actionTypes.GET_HOUSE_INFOS,
+    houseData: houseData,
+  };
+};

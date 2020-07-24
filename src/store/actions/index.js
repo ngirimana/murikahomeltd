@@ -16,10 +16,6 @@ export {
   addHouseStart,
   addHouseSuccess,
   addHouseFail,
-  updateHouse,
-  updateHouseStart,
-  updateHouseSuccess,
-  updateHouseFaiil,
 } from "./house/house";
 
 export { getFeaturedHouses } from "./houses/houses";
@@ -29,4 +25,8 @@ export {
   fetchSingleHouseStart,
   fetchSingleHouseSuccess,
   fetchSingleHouseFail,
+  getHouseInfos,
+  getHouseInfosSuccess,
+  getHouseInfosFail,
+  getHouseInfosStart,
 } from "./SingleHouse/SingleHOuse";

@@ -23,28 +23,3 @@ export const addHouse = (houseData) => {
     houseData: houseData,
   };
 };
-//UPDATE HOUSE
-export const updateHouseStart = () => {
-  return {
-    type: actionTypes.UPDATE_HOUSE_START,
-  };
-};
-export const updateHouseFaiil = (error) => {
-  return {
-    type: actionTypes.UPDATE_HOUSE_FAIL,
-    error: error,
-  };
-};
-export const updateHouseSuccess = (updateHouseData) => {
-  return {
-    type: actionTypes.UPDATE_HOUSE_SUCCESS,
-    houseData: updateHouseData,
-  };
-};
-
-export const updateHouse = (updateHouseData) => {
-  return {
-    type: actionTypes.UPDATE_HOUSE,
-    houseData: updateHouseData,
-  };
-};

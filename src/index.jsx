@@ -20,6 +20,7 @@ import {
   watchLogin,
   watchAddHouse,
   watchSingleHouse,
+  watchGetHouseInfos,
 } from "./store/sagas/index.js";
 
 const composeEnhancers =
@@ -46,6 +47,7 @@ sagaMiddleware.run(watchSignup);
 sagaMiddleware.run(watchLogin);
 sagaMiddleware.run(watchAddHouse);
 sagaMiddleware.run(watchSingleHouse);
+sagaMiddleware.run(watchGetHouseInfos);
 
 ReactDOM.render(
   <Provider store={store}>

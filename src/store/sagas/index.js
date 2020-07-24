@@ -10,7 +10,7 @@ import {
 import { addHouseSaga } from "./house/house.js";
 import {
   fetchSingleHouseSaga,
-  updateHouseSaga,
+  getHouseInfosSaga,
 } from "./SingleHouse/SingleHouse";
 
 export function* watchSignup() {
@@ -30,6 +30,6 @@ export function* watchSingleHouse() {
   yield takeEvery(actionTypes.FETCH_SINGLE_HOUSE, fetchSingleHouseSaga);
 }
 
-export function* watchUpdateHouse() {
-  yield takeEvery(actionTypes.UPDATE_HOUSE, updateHouseSaga);
+export function* watchGetHouseInfos() {
+  yield takeEvery(actionTypes.GET_HOUSE_INFOS, getHouseInfosSaga);
 }

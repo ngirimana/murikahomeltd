@@ -20,7 +20,7 @@ const asyncAddHouse = asyncComponent(() => {
 });
 
 class App extends Component {
-  UNSAFE_componentDidMount() {
+  componentDidMount() {
     this.props.onTryAutoSignup();
   }
 

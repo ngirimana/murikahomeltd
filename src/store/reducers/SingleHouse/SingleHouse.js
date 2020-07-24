@@ -3,6 +3,7 @@ import { updateObject } from "../../../shared/utility";
 
 const initialState = {
   houseData: null,
+  rentedHouseData: [],
   loading: false,
   error: "",
 };
@@ -23,7 +24,19 @@ const fetchSingleHouseFail = (state, action) => {
     error: action.error,
   });
 };
-
+//house infos
+const getHouseInfosStart = (state, action) => {
+  return updateObject(state, { loading: true });
+};
+const getHouseInfosSuccess = (state, action) => {
+  return updateObject(state, {
+    rentedHouseData: action.rentedHouseData,
+    loading: false,
+  });
+};
+const getHouseInfosFail = (state, action) => {
+  return updateObject(state, { error: action.error, loading: false });
+};
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.FETCH_SINGLE_HOUSE_START:
@@ -32,6 +45,12 @@ const reducer = (state = initialState, action) => {
       return fetchSingleHouseSuccess(state, action);
     case actionTypes.FETCH_SINGLE_HOUSE_FAIL:
       return fetchSingleHouseFail(state, action);
+    case actionTypes.GET_HOUSE_INFOS_START:
+      return getHouseInfosStart(state, action);
+    case actionTypes.GET_HOUSE_INFOS_SUCCESS:
+      return getHouseInfosSuccess(state, action);
+    case actionTypes.GET_HOUSE_INFOS_FAIL:
+      return getHouseInfosFail(state, action);
     default:
       return state;
   }

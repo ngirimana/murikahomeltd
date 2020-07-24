@@ -317,7 +317,7 @@ class AddHouse extends Component {
     this.setState({ furnished: isChecked });
   };
 
-  render() {
+  render() { 
     const formElementsArray = [];
     for (let key in this.state.controls) {
       formElementsArray.push({

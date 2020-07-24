@@ -12,14 +12,14 @@ export function* fetchSingleHouseSaga(action) {
   }
 }
 
-export function* updateHouseSaga(action) {
-  yield put(actions.updateHouseStart());
+export function* getHouseInfosSaga(action) {
+  yield put(actions.getHouseInfosStart());
   try {
-    const response = yield axios.patch("/house" + action.id);
+    const response = yield axios.patch(`/house/${action.houseId}/checkout`);
     console.log(response.data.data);
-    yield put(actions.updateHouseSuccess());
+    yield put(actions.getHouseInfosSuccess(response.data.data));
   } catch (error) {
     console.log(error);
-    yield put(actions.updateHouseFaiil());
+    yield put(actions.getHouseInfosFail());
   }
 }
